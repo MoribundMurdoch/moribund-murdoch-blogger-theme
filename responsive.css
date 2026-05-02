@@ -1,0 +1,77 @@
+/* ============================================================
+   responsive.css — moribund-murdoch-blogger-theme
+   All media queries in one place.
+
+   Breakpoints:
+     ≤1440px — hide decorative header elements
+     ≤1156px — sidebar becomes off-canvas drawer
+     ≤640px  — mobile sizing
+   ============================================================ */
+
+/* Hide decorative header pieces on smaller desktops */
+@media (max-width: 1440px) {
+  .nav-menu,
+  .logo-container,
+  .bell-container { display: none; }
+}
+
+/* Sidebar off-canvas */
+@media (max-width: 1156px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75vw;
+    height: 100%;
+    background-color: var(--color-surface-0);
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: var(--glow-md);
+    border-radius: 0;
+  }
+  .sidebar.open { display: block; }
+  .sidebar.open * {
+    font-size: 1em;
+    color: var(--color-text);
+  }
+
+  .sidebar-icon { display: block; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .glowing-title { font-size: 2rem; }
+
+  .search-container { width: 75%; padding: 0; }
+  .search-bar       { width: 100%; }
+
+  .blog-pager-older-link,
+  .blog-pager-newer-link,
+  .blog-pager .home-link,
+  a.home-link {
+    font-size: 0.875rem;
+    padding: 5px 10px;
+  }
+
+  .popular-posts-grid li { flex: 0 0 100%; }
+
+  .main-content,
+  .sidebar { border-width: 12px; }
+}
+
+/* Respect reduced-motion system preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
