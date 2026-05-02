@@ -1,0 +1,113 @@
+/* ============================================================
+   comments.css — moribund-murdoch-blogger-theme
+   Comments section, comment form, reply boxes.
+   ============================================================ */
+
+.comments,
+#comments,
+.comment-section {
+  margin-top: 1.875rem;
+  padding: var(--padding-general);
+  background-color: var(--color-surface-0);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  transition: box-shadow var(--transition-base);
+}
+.comments:hover,
+#comments:hover,
+.comment-section:hover { box-shadow: var(--glow-md); }
+
+.comments::before {
+  content: "Comments";
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 10px;
+  text-align: left;
+}
+.comments h4 { display: none; }
+
+.comment-form {
+  margin-top: 1.25rem;
+  background-color: transparent;
+  padding: var(--padding-general);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-weight: normal;
+}
+
+.comment-author {
+  color: var(--color-text);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.comment-body {
+  margin-bottom: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-dim);
+}
+.comment-timestamp {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+#comment-holder .comment-replybox-single,
+#comment-holder .comment-replybox-thread {
+  background-color: var(--color-surface-4);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.comments .blogger-button,
+.comments .comment-action {
+  background-color: var(--color-text);
+  color: #050505;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+.comments .blogger-button:hover,
+.comments .comment-action:hover {
+  background-color: var(--color-link-hover);
+  color: #050505;
+}
+
+.comments input[type="text"],
+.comments input[type="email"],
+.comments textarea {
+  background-color: var(--color-surface-5);
+  color: var(--color-text);
+  border: 1px solid #444444;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+  font-family: var(--font-primary);
+}
+.comments input::placeholder,
+.comments textarea::placeholder { color: var(--color-text-muted); }
+
+.comments a {
+  color: var(--color-text);
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+}
+.comments a:hover { text-shadow: var(--glow-text-sm); }
+
+.comments .comment-content .status-msg-wrap {
+  background-color: #333333;
+  padding: 15px;
+  border-radius: 5px;
+  color: #ff6666;
+}
+.comments .comment-block {
+  margin-bottom: 1.25rem;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #444444;
+}
