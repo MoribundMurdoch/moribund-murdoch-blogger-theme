@@ -1,0 +1,324 @@
+/* ============================================================
+   posts.css — moribund-murdoch-blogger-theme
+   Random post, popular posts grid, blog post cards,
+   post body, pager navigation, feed link.
+   ============================================================ */
+
+/* Random post */
+.random-post {
+  background-color: var(--color-surface-0);
+  padding: var(--padding-general);
+  margin-bottom: 1.875rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--glow-xs);
+  color: var(--color-text);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.random-post:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-md);
+}
+.random-post h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: var(--glow-text-xs);
+}
+.random-post div {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-dim);
+}
+.random-post a:hover {
+  text-shadow: var(--glow-text-md);
+  text-decoration: underline;
+}
+
+/* Popular posts */
+.popular-posts-container {
+  width: 100%;
+  max-width: 1180px;
+  padding: var(--padding-general);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-0);
+  box-shadow: var(--glow-xs);
+}
+.popular-posts-container h2 {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-surface-0),
+    var(--color-surface-3) 40%,
+    var(--color-surface-0) 80%
+  );
+  margin: 1.25rem 0;
+  opacity: 0.95;
+  padding: var(--padding-general);
+  text-align: center;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  text-shadow: var(--glow-text-xs);
+  box-shadow: var(--glow-xs);
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              text-shadow var(--transition-base);
+}
+.popular-posts-container h2:hover {
+  transform: scale(1.03);
+  box-shadow: var(--glow-md);
+  text-shadow: var(--glow-text-md);
+}
+
+.popular-posts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.popular-posts-grid li {
+  flex: 0 0 calc(50% - 10px);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+  box-shadow: var(--glow-xs);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  overflow: hidden;
+  height: 150px;
+  margin: 0;
+  display: flex;
+}
+.popular-posts-grid li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-md);
+}
+
+.item-thumbnail { flex: 0 0 50%; height: 100%; }
+.item-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.1);
+  box-shadow: var(--glow-xs);
+}
+
+.item-content {
+  flex: 0 0 50%;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color-surface-0);
+  color: var(--color-text);
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.03);
+  border-left: 2px solid var(--color-border);
+}
+.item-title {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  text-shadow: var(--glow-text-xs);
+}
+.item-snippet {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Post cards */
+.post-outer-container {
+  background: var(--color-surface-0);
+  color: var(--color-text);
+  padding: var(--padding-general);
+  margin-bottom: 1.25rem;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-primary);
+  box-shadow: var(--glow-xs);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              background var(--transition-base);
+}
+.post-outer-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-md);
+  background: var(--color-surface-2);
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  font-family: var(--font-secondary);
+}
+.post-title a { color: var(--color-text); }
+.post-title a:hover {
+  color: var(--color-link-hover);
+  text-shadow: var(--glow-text-md);
+  text-decoration: underline;
+}
+
+.post-title.entry-title {
+  background: linear-gradient(135deg, var(--color-surface-0), var(--color-surface-3));
+  margin: 1.25rem 0;
+  opacity: 0.97;
+  padding: var(--padding-general);
+  text-align: center;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  text-shadow: var(--glow-text-sm);
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.post-title.entry-title:hover {
+  transform: scale(1.05);
+  box-shadow: var(--glow-lg);
+}
+
+.post-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  font-family: var(--font-primary);
+}
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.2em auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--glow-xs);
+}
+.post-body img[width],
+.post-body img[height] {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.post-author {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+.post-author a:hover { text-shadow: var(--glow-text-sm); text-decoration: underline; }
+
+.post-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+.post-labels,
+.post-location,
+.post-timestamp { display: inline-block; }
+.post-labels a,
+.post-location a { color: var(--color-text); margin-right: 5px; }
+.post-labels a:hover,
+.post-location a:hover { text-shadow: var(--glow-text-sm); text-decoration: underline; }
+
+/* YouTube embeds */
+iframe[src*="youtube.com"] {
+  border: 3px solid var(--color-border-strong) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--glow-lg) !important;
+  background-color: #050505 !important;
+  display: block !important;
+  margin: 1.875rem auto !important;
+  max-width: 100% !important;
+  transition: transform var(--transition-base), box-shadow var(--transition-base) !important;
+}
+iframe[src*="youtube.com"]:hover {
+  transform: scale(1.03) !important;
+  box-shadow: var(--glow-xl) !important;
+}
+
+/* Pager */
+.blog-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  margin: 0 auto;
+}
+
+.blog-pager-older-link,
+.blog-pager-newer-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  background-color: #101010;
+  box-shadow: var(--glow-xs);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              color var(--transition-base);
+}
+.blog-pager-older-link:hover,
+.blog-pager-newer-link:hover {
+  transform: scale(1.05);
+  color: var(--color-link-hover);
+  box-shadow: var(--glow-md);
+}
+
+.blog-pager .home-link,
+a.home-link {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-text);
+  padding: 12px 32px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-0);
+  font-family: var(--font-primary);
+  text-shadow: var(--glow-text-xs);
+  box-shadow: var(--glow-sm);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              background-color var(--transition-base),
+              color var(--transition-base);
+}
+.blog-pager .home-link:hover,
+a.home-link:hover {
+  transform: scale(1.05);
+  background-color: var(--color-text);
+  color: #050505;
+  box-shadow: var(--glow-md);
+}
+
+/* Feed link */
+a.feed-link {
+  display: inline-block;
+  background-color: var(--color-surface-1);
+  color: var(--color-text);
+  padding: 6px 14px;
+  margin-left: auto;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: bold;
+  box-shadow: var(--glow-xs);
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              background-color var(--transition-base),
+              color var(--transition-base);
+}
+a.feed-link:hover {
+  transform: scale(1.05);
+  background-color: var(--color-text);
+  color: #050505;
+  box-shadow: var(--glow-md);
+}
+a.feed-link:active {
+  background-color: var(--color-text-dim);
+  color: #050505;
+  box-shadow: var(--glow-sm);
+  transform: scale(1);
+}
