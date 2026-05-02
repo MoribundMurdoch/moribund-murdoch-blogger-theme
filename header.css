@@ -1,0 +1,248 @@
+/* ============================================================
+   header.css — moribund-murdoch-blogger-theme
+   Header container, logo, bell/dropdown, glowing title, search.
+   ============================================================ */
+
+.header {
+  width: 100%;
+  max-width: var(--max-width-wrapper);
+  padding: var(--padding-general);
+  text-align: center;
+  margin: 0 auto 1.25rem;
+}
+
+.header-container {
+  position: relative;
+  background: var(--color-surface-4);
+  padding: 15px;
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-md);
+  height: 200px;
+  box-shadow: var(--glow-xs);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  z-index: 1;
+}
+.header-container:hover {
+  box-shadow: var(--glow-sm);
+  transform: scale(1.005);
+}
+.header-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.02), rgba(0,0,0,0.5));
+  border-radius: var(--radius-md);
+  z-index: -1;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 100px;
+  position: absolute;
+  top: 50px;
+  left: 21%;
+  border-radius: 10px;
+  background-color: var(--color-surface-4);
+}
+.header-logo {
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.header-logo:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: var(--glow-lg);
+}
+
+/* Bell */
+.bell-container {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: auto;
+  height: auto;
+  z-index: 2;
+}
+.bell-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: color var(--transition-base), text-shadow var(--transition-base);
+}
+.bell-icon:hover {
+  color: var(--color-link-hover);
+  text-shadow: var(--glow-text-md);
+}
+
+/* Dropdown */
+.notification-container {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--color-surface-4);
+  padding: 10px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  min-width: 250px;
+  max-width: 350px;
+  z-index: 9999;
+  overflow: auto;
+  transition: box-shadow var(--transition-base);
+}
+.notification-container .dropdown-menu.active { display: block; }
+.notification-container:hover .dropdown-menu  { box-shadow: var(--glow-md); }
+
+#FeaturedPost1 .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text);
+  text-align: center;
+  display: block;
+  padding: 10px;
+}
+#FeaturedPost1 .title a { color: var(--color-text); }
+#FeaturedPost1 .title a:hover { text-shadow: var(--glow-text-md); }
+
+.post-summary {
+  padding: 5px 10px;
+  color: var(--color-text);
+  overflow: hidden;
+}
+.post-summary h3 a {
+  color: var(--color-text);
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+.post-summary h3 a:hover { text-shadow: var(--glow-text-md); }
+.post-summary p {
+  margin-top: 3px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.post-summary img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin-top: 8px;
+  transition: box-shadow var(--transition-base);
+}
+.post-summary img:hover { box-shadow: var(--glow-md); }
+
+/* Glowing title */
+.title-container {
+  display: inline-flex;
+  justify-content: center;
+  margin: 1.25rem 0;
+}
+.glowing-title {
+  font-family: var(--font-primary);
+  font-size: 4rem;
+  color: var(--color-text);
+  text-align: center;
+  transition: text-shadow var(--transition-base), color var(--transition-base);
+  text-shadow:
+    0 0 1rem rgba(255, 255, 255, 0.5),
+    0 0 2rem rgba(255, 255, 255, 0.3),
+    0 0 3rem rgba(255, 255, 255, 0.1);
+}
+.glowing-title:hover {
+  color: var(--color-link-hover);
+  text-shadow:
+    0 0 1.5rem rgba(255, 255, 255, 0.7),
+    0 0 3rem   rgba(255, 255, 255, 0.5),
+    0 0 4.5rem rgba(255, 255, 255, 0.3);
+}
+
+/* Search */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin: 1.25rem auto 0;
+  padding: 0 15px;
+}
+.search-bar {
+  max-width: 600px;
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.3);
+  transition: box-shadow var(--transition-base);
+}
+.search-bar:hover,
+.search-bar:focus-within { box-shadow: none; }
+
+.search-bar form {
+  display: flex;
+  background-color: var(--color-surface-4);
+  border-radius: inherit;
+  overflow: hidden;
+  height: 100%;
+  transition: background-color var(--transition-base);
+}
+.search-bar:hover form,
+.search-bar:focus-within form { background-color: #050505; }
+
+.search-bar input {
+  flex: 1;
+  padding: 0 15px;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  outline: none;
+  font-size: 1rem;
+}
+.search-bar input::placeholder { color: var(--color-text-muted); }
+
+.search-bar button {
+  background-color: transparent;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-link-hover);
+}
+
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #3a3a3a;
+  border-radius: var(--radius-sm);
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: var(--color-surface-0);
+  z-index: 99;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: var(--color-surface-0);
+  border-bottom: 1px solid #3a3a3a;
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+.autocomplete-items div:hover,
+.autocomplete-active { background-color: var(--color-surface-3); }
