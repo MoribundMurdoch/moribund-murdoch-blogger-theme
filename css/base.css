@@ -69,7 +69,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-bg);
-  background-image: url('../textures/body-background-tile.png');
+  background-image: url('../assets/textures/body-background-tile.png');
   background-repeat: repeat;
   background-size: 256px 256px;
   color: var(--color-text);
