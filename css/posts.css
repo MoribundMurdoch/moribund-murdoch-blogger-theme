@@ -262,9 +262,7 @@
   padding-top: 0.75rem;
   border-top: 1px solid var(--color-border);
 }
-
 .post-footer-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-
 .post-timestamp { color: var(--color-text-dim); font-size: 0.8rem; }
 
 /* ---- Label pills ---- */
@@ -318,60 +316,68 @@ iframe[src*="youtube.com"]:hover {
 .blog-pager {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   padding: 1.25rem 0;
   margin: 0 auto;
 }
 
+/* Prev / Next post links */
 .blog-pager-older-link,
 .blog-pager-newer-link {
-  font-size: 0.95rem;
-  font-weight: bold;
-  color: var(--color-text);
-  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  padding: 8px 14px;
   border-radius: var(--radius-md);
-  background-color: #101010;
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border);
   box-shadow: var(--glow-xs);
-  /* Allow the post title to wrap onto a second line */
   white-space: normal;
-  max-width: 280px;
+  max-width: 260px;
   line-height: 1.4;
   text-align: center;
   transition: transform var(--transition-base),
               box-shadow var(--transition-base),
-              color var(--transition-base);
+              color var(--transition-base),
+              border-color var(--transition-base);
 }
 .blog-pager-older-link:hover,
 .blog-pager-newer-link:hover {
   transform: scale(1.03);
   color: var(--color-link-hover);
+  border-color: var(--color-border-strong);
   box-shadow: var(--glow-md);
 }
 
+/* Home link — centre focal point of the pager */
 .blog-pager .home-link,
 a.home-link {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: bold;
   color: var(--color-text);
-  padding: 12px 24px;
+  padding: 12px 32px;
   border-radius: var(--radius-md);
   background-color: var(--color-surface-0);
+  border: 1px solid var(--color-border-strong);
   font-family: var(--font-primary);
   text-shadow: var(--glow-text-xs);
   box-shadow: var(--glow-sm);
   white-space: nowrap;
+  letter-spacing: 0.06em;
   transition: transform var(--transition-base),
               box-shadow var(--transition-base),
               background-color var(--transition-base),
-              color var(--transition-base);
+              color var(--transition-base),
+              border-color var(--transition-base);
 }
 .blog-pager .home-link:hover,
 a.home-link:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
   background-color: var(--color-text);
   color: #050505;
-  box-shadow: var(--glow-md);
+  border-color: var(--color-text);
+  box-shadow: var(--glow-lg);
 }
 
 /* ---- Feed link ---- */
