@@ -39,14 +39,17 @@
   overflow-x: hidden;
 }
 
-/* Main content — Option B frame */
+/* Main content — parchment surface */
 .main-content {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
   padding: var(--padding-general);
-  background-color: var(--color-surface-0);
+  background-color: #c8a96e;
+  background-image: url('../assets/textures/main-content-area-tile.png');
+  background-repeat: repeat;
+  background-size: 512px 512px;
   border-radius: var(--radius-md);
   border: none;
   box-shadow:
@@ -54,6 +57,23 @@
     0 0 0 4px var(--color-surface-3),
     0 0 0 5px var(--color-border-strong);
   min-width: 0;
+  color: #1a1008;
+}
+
+.main-content p,
+.main-content li,
+.main-content td,
+.main-content th,
+.main-content blockquote {
+  color: #1a1008;
+}
+
+.main-content a {
+  color: #5c3a1e;
+}
+.main-content a:hover {
+  color: #2a1a0a;
+  text-shadow: 0 0 4px rgba(90, 50, 10, 0.4);
 }
 
 .main-content img,
@@ -67,17 +87,17 @@
 .main-content h2 {
   background: repeating-linear-gradient(
     135deg,
-    var(--color-surface-0),
-    var(--color-surface-3) 40%,
-    var(--color-surface-0) 80%
+    rgba(180, 130, 60, 0.4),
+    rgba(210, 170, 100, 0.6) 40%,
+    rgba(180, 130, 60, 0.4) 80%
   );
   margin: 1.25rem 0;
   opacity: 0.95;
   padding: 1.25rem;
   text-align: center;
   border-radius: var(--radius-md);
-  color: var(--color-text);
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  color: #1a1008;
+  text-shadow: 0 0 1px rgba(90, 50, 10, 0.3);
   font-size: 1.5rem;
   font-family: var(--font-primary);
   cursor: pointer;
@@ -85,14 +105,14 @@
 }
 .main-content h2:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 12px rgba(90, 50, 10, 0.4);
 }
 
 .publish-info {
   margin: 8px 0;
   font-size: 0.85em;
-  color: var(--color-text);
-  text-shadow: var(--glow-text-xs);
+  color: #5c3a1e;
+  text-shadow: none;
   display: flex;
   gap: 8px;
   align-items: center;
