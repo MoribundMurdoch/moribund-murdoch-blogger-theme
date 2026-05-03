@@ -26,7 +26,7 @@
 }
 
 .sidebar h2 {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin: 0 0 12px;
   text-align: center;
@@ -36,6 +36,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   transition: text-shadow var(--transition-base);
+  /* Stone tablet button */
+  background-image: url('../assets/textures/button-label-pill.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 0;
 }
 
 .sidebar a {
@@ -62,9 +70,12 @@
 }
 
 .sidebar ul.flat li.archivedate {
-  background: rgba(130, 115, 90, 0.25);
-  border: 1px solid rgba(60, 45, 25, 0.18);
-  border-radius: var(--radius-sm);
+  background-image: url('../assets/textures/button-archive-tile.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
   text-align: center;
   padding: 5px 4px;
   font-size: 0.72em;
@@ -76,7 +87,7 @@
 }
 .sidebar ul.flat li.archivedate:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 6px rgba(60, 45, 25, 0.18);
+  box-shadow: 0 0 6px rgba(60, 45, 25, 0.2);
 }
 .sidebar ul.flat li.archivedate a {
   color: #1a1008;
@@ -123,25 +134,28 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 .widget-content.list-label-widget-content li a {
   display: block;
   padding: 4px 6px;
-  background-color: rgba(145, 130, 105, 0.3);
+  background-image: url('../assets/textures/button-label-pill.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
   color: #1a1008;
   font-family: var(--font-primary);
   font-size: 0.7rem;
-  border: 1px solid rgba(60, 45, 25, 0.18);
-  border-radius: var(--radius-sm);
+  border: none;
+  border-radius: 0;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  box-shadow: 0 0 2px rgba(60, 45, 25, 0.08);
-  transition: background-color var(--transition-fast),
-              color var(--transition-fast),
-              box-shadow var(--transition-fast);
+  box-shadow: none;
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast),
+              color var(--transition-fast);
 }
 .widget-content.list-label-widget-content li a:hover {
-  background-color: rgba(130, 115, 90, 0.5);
+  transform: scale(1.04);
+  box-shadow: 0 0 6px rgba(60, 45, 25, 0.2);
   color: #1a1008;
-  box-shadow: 0 0 8px rgba(60, 45, 25, 0.2);
 }
 .widget-content.list-label-widget-content li span { display: none; }
 
