@@ -1,7 +1,6 @@
 /* ============================================================
    layout.css — moribund-murdoch-blogger-theme
    Page grid, main content area, publish info.
-
    Blogger's HTML structure:
      .content-wrapper (outer)
        .sidebar-icon   — mobile toggle, hidden at desktop
@@ -30,9 +29,7 @@
   box-sizing: border-box;
   overflow-x: hidden;
 }
-
 .content-wrapper > .sidebar    { grid-column: 1; min-width: 0; }
-
 .content-wrapper > .content-wrapper {
   grid-column: 2;
   display: block;
@@ -42,7 +39,7 @@
   overflow-x: hidden;
 }
 
-/* Main content */
+/* Main content — Option B frame */
 .main-content {
   width: 100%;
   max-width: 100%;
@@ -51,10 +48,11 @@
   padding: var(--padding-general);
   background-color: var(--color-surface-0);
   border-radius: var(--radius-md);
-  border: 20px solid transparent;
-  border-image-source: var(--frame-border);
-  border-image-slice: 40%;
-  border-image-repeat: stretch;
+  border: none;
+  box-shadow:
+    0 0 0 1px var(--color-border),
+    0 0 0 4px var(--color-surface-3),
+    0 0 0 5px var(--color-border-strong);
   min-width: 0;
 }
 
