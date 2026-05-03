@@ -12,6 +12,9 @@
   border-radius: var(--radius-md);
   color: var(--color-text);
   height: fit-content;
+  /* Prevent any child from breaking out */
+  min-width: 0;
+  overflow: hidden;
   border: 20px solid transparent;
   border-image-source: var(--frame-border);
   border-image-slice: 40%;
@@ -22,48 +25,55 @@
 .sidebar:hover { box-shadow: var(--glow-md); }
 
 .sidebar h2 {
-  font-size: 1.625rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin: 0 0 15px;
+  margin: 0 0 12px;
   text-align: center;
   color: var(--color-text);
   text-shadow: var(--glow-text-xs);
-  transition: font-size var(--transition-base), text-shadow var(--transition-base);
+  /* Stop heading text overflowing */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: text-shadow var(--transition-base);
 }
 
 .sidebar a {
-  font-size: 1.0625rem;
+  font-size: 0.95rem;
   color: var(--color-text);
   font-weight: 500;
-  transition: color var(--transition-base),
-              text-shadow var(--transition-base),
-              font-size var(--transition-base);
+  /* No font-size growth on hover — causes layout jumps in a narrow sidebar */
+  transition: color var(--transition-base), text-shadow var(--transition-base);
 }
 .sidebar a:hover {
   color: var(--color-link-hover);
   text-shadow: var(--glow-text-md);
-  font-size: 1.125rem;
 }
 
 .sidebar .widget { margin-bottom: 1.25rem; }
 
-/* Archive date grid */
+/* ---- Archive date grid ---- */
 .sidebar ul.flat {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
+  gap: 5px;
   padding: 0;
   margin: 0;
   list-style: none;
 }
+
 .sidebar ul.flat li.archivedate {
   background: linear-gradient(135deg, var(--color-surface-0), var(--color-surface-3));
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   text-align: center;
-  padding: 6px 8px;
+  padding: 5px 4px;
+  font-size: 0.72em;
+  /* Stop month/year wrapping */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
-  font-size: 0.8em;
   transition: transform var(--transition-fast), box-shadow var(--transition-base);
 }
 .sidebar ul.flat li.archivedate:hover {
@@ -74,19 +84,22 @@
   color: var(--color-text);
   font-weight: bold;
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Category heading tweaks */
+/* ---- Category heading tweaks ---- */
 h2 > a[href="/p/categories.html"] { display: inline-block; margin-bottom: 0; }
 h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 .widget-content.list-label-widget-content { margin-top: 0; padding-top: 0; }
 
-/* Material Icon headers */
+/* ---- Material Icon headers ---- */
 #BlogArchive1 h2::before,
 #Label1 h2::before,
 #Translate1 h2::before {
   font-family: 'Material Icons';
-  margin-right: 8px;
+  margin-right: 6px;
   vertical-align: middle;
   color: var(--color-text);
   text-shadow: var(--glow-text-xs);
@@ -95,26 +108,34 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 #Label1 h2::before       { content: 'label'; }
 #Translate1 h2::before   { content: 'translate'; text-shadow: var(--glow-text-sm); }
 
-/* Label tag grid */
+/* ---- Label tag grid ---- */
 .widget-content.list-label-widget-content ul {
   list-style: none;
   margin: 0;
-  padding: var(--padding-general);
+  padding: 0.5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
-.widget-content.list-label-widget-content li { margin: 0; padding: 0; }
+.widget-content.list-label-widget-content li {
+  margin: 0;
+  padding: 0;
+  min-width: 0; /* allow grid cell to shrink */
+}
 .widget-content.list-label-widget-content li a {
   display: block;
-  padding: 4px 8px;
+  padding: 4px 6px;
   background-color: var(--color-surface-0);
   color: var(--color-text);
   font-family: var(--font-primary);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   text-align: center;
+  /* Key fix — stop label text wrapping */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   box-shadow: var(--glow-xs);
   transition: background-color var(--transition-fast),
               color var(--transition-fast),
@@ -123,11 +144,11 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 .widget-content.list-label-widget-content li a:hover {
   background-color: var(--color-surface-3);
   color: var(--color-link-hover);
-  box-shadow: var(--glow-md), var(--glow-lg);
+  box-shadow: var(--glow-md);
 }
 .widget-content.list-label-widget-content li span { display: none; }
 
-/* Mobile toggle icon */
+/* ---- Mobile toggle icon ---- */
 .sidebar-icon {
   display: none;
   position: fixed;
