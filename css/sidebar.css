@@ -12,17 +12,23 @@
   border-radius: var(--radius-md);
   color: var(--color-text);
   height: fit-content;
-  /* Prevent any child from breaking out */
   min-width: 0;
   overflow: hidden;
-  border: 20px solid transparent;
-  border-image-source: var(--frame-border);
-  border-image-slice: 40%;
-  border-image-repeat: stretch;
-  box-shadow: var(--glow-xs);
+  border: none;
+  /* Option B — layered box-shadow frame */
+  box-shadow:
+    0 0 0 1px var(--color-border),
+    0 0 0 4px var(--color-surface-3),
+    0 0 0 5px var(--color-border-strong);
   transition: box-shadow var(--transition-base);
 }
-.sidebar:hover { box-shadow: var(--glow-md); }
+.sidebar:hover {
+  box-shadow:
+    0 0 0 1px var(--color-border),
+    0 0 0 4px var(--color-surface-3),
+    0 0 0 5px var(--color-border-strong),
+    var(--glow-md);
+}
 
 .sidebar h2 {
   font-size: 1.4rem;
@@ -31,7 +37,6 @@
   text-align: center;
   color: var(--color-text);
   text-shadow: var(--glow-text-xs);
-  /* Stop heading text overflowing */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -42,7 +47,6 @@
   font-size: 0.95rem;
   color: var(--color-text);
   font-weight: 500;
-  /* No font-size growth on hover — causes layout jumps in a narrow sidebar */
   transition: color var(--transition-base), text-shadow var(--transition-base);
 }
 .sidebar a:hover {
@@ -69,7 +73,6 @@
   text-align: center;
   padding: 5px 4px;
   font-size: 0.72em;
-  /* Stop month/year wrapping */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -120,7 +123,7 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 .widget-content.list-label-widget-content li {
   margin: 0;
   padding: 0;
-  min-width: 0; /* allow grid cell to shrink */
+  min-width: 0;
 }
 .widget-content.list-label-widget-content li a {
   display: block;
@@ -132,7 +135,6 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   text-align: center;
-  /* Key fix — stop label text wrapping */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
