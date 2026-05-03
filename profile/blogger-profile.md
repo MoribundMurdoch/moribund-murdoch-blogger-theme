@@ -1,6 +1,6 @@
 # Blogger Profile
 > For reference only — edit at https://www.blogger.com/u/1/profile/edit
- ![Blogger profile](assets/reference/blogger-profile-screenshot.png)
+[!Blogger profile](assets/reference/blogger-profile-screenshot.png)
 
 ## Work
 **Industry:** Education
