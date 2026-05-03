@@ -4,12 +4,25 @@
    post body, pager navigation, feed link.
    ============================================================ */
 
-/* Random post */
+/* ============================================================
+   SECTION LABEL MIXIN
+   Used by random post, popular posts, and latest posts
+   to show a small uppercase label above each section.
+   ============================================================ */
+.random-post,
+.popular-posts-container,
+.latest-posts-label {
+  position: relative;
+}
+
+/* ---- Random Post ---- */
 .random-post {
-  background-color: var(--color-surface-0);
+  background-color: var(--color-surface-1);
   padding: var(--padding-general);
+  padding-top: calc(var(--padding-general) + 0.5rem);
   margin-bottom: 1.875rem;
   border-radius: var(--radius-md);
+  border-left: 3px solid rgba(255, 255, 255, 0.15);
   box-shadow: var(--glow-xs);
   color: var(--color-text);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -17,6 +30,17 @@
 .random-post:hover {
   transform: translateY(-2px);
   box-shadow: var(--glow-md);
+}
+/* Section label */
+.random-post::before {
+  content: '⚄ Random Post';
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
 }
 .random-post h2 {
   font-size: 1.5rem;
@@ -34,14 +58,28 @@
   text-decoration: underline;
 }
 
-/* Popular posts */
+/* ---- Popular Posts ---- */
 .popular-posts-container {
   width: 100%;
   max-width: 1180px;
   padding: var(--padding-general);
+  padding-top: calc(var(--padding-general) + 0.5rem);
   border-radius: var(--radius-md);
   background-color: var(--color-surface-0);
+  border-left: 3px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--glow-xs);
+  margin-bottom: 1.875rem;
+}
+/* Section label */
+.popular-posts-container::before {
+  content: '★ Popular Posts';
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
 }
 .popular-posts-container h2 {
   background: repeating-linear-gradient(
@@ -50,7 +88,7 @@
     var(--color-surface-3) 40%,
     var(--color-surface-0) 80%
   );
-  margin: 1.25rem 0;
+  margin: 0 0 1.25rem;
   opacity: 0.95;
   padding: var(--padding-general);
   text-align: center;
@@ -126,7 +164,20 @@
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
-/* Post cards */
+/* ---- Latest Posts label (injected by XML above .blog-posts) ---- */
+.latest-posts-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+  padding-left: 2px;
+  border-left: 3px solid rgba(255, 255, 255, 0.12);
+  padding: 0.25rem 0 0.25rem 0.75rem;
+}
+
+/* ---- Post cards ---- */
 .post-outer-container {
   background: var(--color-surface-0);
   color: var(--color-text);
@@ -239,7 +290,7 @@ iframe[src*="youtube.com"]:hover {
   box-shadow: var(--glow-xl) !important;
 }
 
-/* Pager */
+/* ---- Pager ---- */
 .blog-pager {
   display: flex;
   justify-content: space-between;
@@ -292,7 +343,7 @@ a.home-link:hover {
   box-shadow: var(--glow-md);
 }
 
-/* Feed link */
+/* ---- Feed link ---- */
 a.feed-link {
   display: inline-block;
   background-color: var(--color-surface-1);
