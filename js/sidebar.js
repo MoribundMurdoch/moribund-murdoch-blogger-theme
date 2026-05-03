@@ -26,3 +26,23 @@
 
   });
 })();
+// === RANDOMISE LABELS ===
+const labelItems = document.querySelectorAll(
+  '.widget-content.list-label-widget-content li'
+);
+
+if (labelItems.length > 0) {
+  const MAX_LABELS = 12; // change this number to show more or fewer
+  const all = Array.from(labelItems);
+
+  // Shuffle
+  for (let i = all.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [all[i], all[j]] = [all[j], all[i]];
+  }
+
+  // Hide all then show only the random selection
+  all.forEach((item, index) => {
+    item.style.display = index < MAX_LABELS ? '' : 'none';
+  });
+}
