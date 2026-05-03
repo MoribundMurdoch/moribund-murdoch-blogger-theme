@@ -7,7 +7,12 @@
 
 .header-container {
   width: 100%;
-  background: var(--color-surface-4);
+  background: linear-gradient(
+    135deg,
+    var(--color-surface-4) 0%,
+    var(--color-surface-2) 50%,
+    var(--color-surface-4) 100%
+  );
   padding: 16px 24px;
   display: flex;
   flex-direction: column;
@@ -164,9 +169,7 @@
   width: 100%;
   max-width: var(--max-width-wrapper);
   margin: 0 auto;
-  /* Indent by logo width + gap to align with title */
   padding-left: calc(56px + 16px);
-  /* Leave space on the right matching the bell */
   padding-right: calc(1.5rem + 16px);
   box-sizing: border-box;
 }
@@ -241,7 +244,7 @@
 
 /* ---- Responsive ---- */
 @media (max-width: 1440px) {
-  .bell-container { display: flex; } /* keep bell visible longer */
+  .bell-container { display: flex; }
   .logo-container { display: flex; }
 }
 
