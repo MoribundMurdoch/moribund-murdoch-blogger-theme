@@ -1,15 +1,19 @@
 /* ============================================================
    comments.css — moribund-murdoch-blogger-theme
    Comments section, comment form, reply boxes.
+   Note: the Google comment iframe is cross-origin and cannot
+   be styled — only the surrounding container is customisable.
    ============================================================ */
 
+/* ---- Outer container ---- */
 .comments,
 #comments,
 .comment-section {
   margin-top: 1.875rem;
   padding: var(--padding-general);
-  background-color: var(--color-surface-0);
+  background-color: var(--color-surface-1);
   border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
   color: var(--color-text);
   font-family: var(--font-primary);
   transition: box-shadow var(--transition-base);
@@ -18,60 +22,103 @@
 #comments:hover,
 .comment-section:hover { box-shadow: var(--glow-md); }
 
-.comments::before {
-  content: "Comments";
-  display: block;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--color-text);
-  margin-bottom: 10px;
-  text-align: left;
-}
+/* ---- Section heading ---- */
+/* Hide Blogger's default h4 */
 .comments h4 { display: none; }
 
+/* Inject heading via ::before */
+.comments::before,
+#comments::before {
+  content: "Comments";
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  text-shadow: var(--glow-text-xs);
+}
+
+/* Threaded comments use an h3 .title instead */
+.comments .title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---- Google iframe wrapper ---- */
+/* Frames the white cross-origin iframe against the dark container */
 .comment-form {
   margin-top: 1.25rem;
-  background-color: transparent;
-  padding: var(--padding-general);
+  background-color: var(--color-surface-0);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  color: var(--color-text);
-  font-weight: normal;
+  overflow: hidden;
+  padding: 0;
 }
+
+/* ---- Individual comments ---- */
+.comment-block {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.comment-block:last-child { border-bottom: none; }
 
 .comment-author {
   color: var(--color-text);
   font-weight: bold;
   margin-bottom: 5px;
+  font-size: 0.9rem;
 }
+
 .comment-body {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--color-text-dim);
 }
+
 .comment-timestamp {
   font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
+/* ---- Deleted comments ---- */
+.deleted-comment {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ---- Reply boxes ---- */
 #comment-holder .comment-replybox-single,
 #comment-holder .comment-replybox-thread {
   background-color: var(--color-surface-4);
   color: var(--color-text);
   border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
   padding: 15px;
   margin-top: 10px;
+  overflow: hidden;
 }
 
+/* ---- Buttons (non-iframe comment modes only) ---- */
 .comments .blogger-button,
 .comments .comment-action {
   background-color: var(--color-text);
   color: #050505;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  font-family: var(--font-primary);
+  transition: background-color var(--transition-base),
+              color var(--transition-base);
 }
 .comments .blogger-button:hover,
 .comments .comment-action:hover {
@@ -79,35 +126,42 @@
   color: #050505;
 }
 
+/* ---- Inputs (non-iframe comment modes only) ---- */
 .comments input[type="text"],
 .comments input[type="email"],
 .comments textarea {
   background-color: var(--color-surface-5);
   color: var(--color-text);
-  border: 1px solid #444444;
-  border-radius: 5px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
   padding: 10px;
   width: 100%;
   margin-bottom: 15px;
   font-family: var(--font-primary);
+  transition: border-color var(--transition-fast);
+}
+.comments input[type="text"]:focus,
+.comments input[type="email"]:focus,
+.comments textarea:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+  outline: none;
 }
 .comments input::placeholder,
 .comments textarea::placeholder { color: var(--color-text-muted); }
 
+/* ---- Links ---- */
 .comments a {
   color: var(--color-text);
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
 }
 .comments a:hover { text-shadow: var(--glow-text-sm); }
 
+/* ---- Status messages ---- */
 .comments .comment-content .status-msg-wrap {
-  background-color: #333333;
+  background-color: var(--color-surface-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   padding: 15px;
-  border-radius: 5px;
   color: #ff6666;
-}
-.comments .comment-block {
-  margin-bottom: 1.25rem;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #444444;
+  margin-bottom: 1rem;
 }
