@@ -1,12 +1,14 @@
 /* ============================================================
    sidebar.js — moribund-murdoch-blogger-theme
    - Mobile sidebar open/close toggle
+   - Randomised label display (shows a random subset on each visit)
    ============================================================ */
 
 (function () {
   document.addEventListener('DOMContentLoaded', function () {
 
-    const sidebar = document.querySelector('.sidebar');
+    // === MOBILE SIDEBAR TOGGLE ===
+    const sidebar    = document.querySelector('.sidebar');
     const sidebarIcon = document.querySelector('.sidebar-icon');
 
     if (sidebarIcon && sidebar) {
@@ -14,7 +16,6 @@
         sidebar.classList.toggle('open');
       });
 
-      // Close sidebar when clicking outside of it
       document.addEventListener('click', function (e) {
         if (sidebar.classList.contains('open') &&
             !sidebar.contains(e.target) &&
@@ -24,25 +25,29 @@
       });
     }
 
+    // === RANDOMISE LABELS ===
+    // Shows a random selection of labels on each page load.
+    // Change MAX_LABELS to control how many are shown at once.
+    const MAX_LABELS = 12;
+
+    const labelItems = document.querySelectorAll(
+      '.widget-content.list-label-widget-content li'
+    );
+
+    if (labelItems.length > 0) {
+      const all = Array.from(labelItems);
+
+      // Fisher-Yates shuffle
+      for (let i = all.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [all[i], all[j]] = [all[j], all[i]];
+      }
+
+      // Show only the first MAX_LABELS items, hide the rest
+      all.forEach((item, index) => {
+        item.style.display = index < MAX_LABELS ? '' : 'none';
+      });
+    }
+
   });
 })();
-// === RANDOMISE LABELS ===
-const labelItems = document.querySelectorAll(
-  '.widget-content.list-label-widget-content li'
-);
-
-if (labelItems.length > 0) {
-  const MAX_LABELS = 12; // change this number to show more or fewer
-  const all = Array.from(labelItems);
-
-  // Shuffle
-  for (let i = all.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [all[i], all[j]] = [all[j], all[i]];
-  }
-
-  // Hide all then show only the random selection
-  all.forEach((item, index) => {
-    item.style.display = index < MAX_LABELS ? '' : 'none';
-  });
-}
