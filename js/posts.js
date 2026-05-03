@@ -2,7 +2,7 @@
    posts.js — moribund-murdoch-blogger-theme
    - Popular posts grid flex layout
    - Hide popular posts on archive pages
-   - Random post fetcher for homepage
+   - Random post fetcher for homepage with section label
    ============================================================ */
 
 (function () {
@@ -44,7 +44,11 @@
           const post = posts[Math.floor(Math.random() * posts.length)];
           const title = post.title.$t;
           const url = post.link.find(l => l.rel === 'alternate').href;
-          const content = post.content ? post.content.$t : (post.summary ? post.summary.$t : '');
+          const content = post.content
+            ? post.content.$t
+            : (post.summary ? post.summary.$t : '');
+
+          // Inject content — the ::before CSS label handles the "Random Post" heading
           randomPostContainer.innerHTML = `
             <h2><a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a></h2>
             <div>${content}</div>
@@ -54,6 +58,7 @@
           console.warn('posts.js: could not fetch random post', err);
           randomPostContainer.innerHTML = '<p>Error fetching post.</p>';
         });
+
     } else if (randomPostContainer) {
       randomPostContainer.style.display = 'none';
     }
