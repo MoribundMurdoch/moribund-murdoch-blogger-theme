@@ -4,11 +4,6 @@
    post body, pager navigation, feed link.
    ============================================================ */
 
-/* ============================================================
-   SECTION LABEL MIXIN
-   Used by random post, popular posts, and latest posts
-   to show a small uppercase label above each section.
-   ============================================================ */
 .random-post,
 .popular-posts-container,
 .latest-posts-label {
@@ -31,7 +26,6 @@
   transform: translateY(-2px);
   box-shadow: var(--glow-md);
 }
-/* Section label */
 .random-post::before {
   content: '⚄ Random Post';
   display: block;
@@ -70,7 +64,6 @@
   box-shadow: var(--glow-xs);
   margin-bottom: 1.875rem;
 }
-/* Section label */
 .popular-posts-container::before {
   content: '★ Popular Posts';
   display: block;
@@ -164,7 +157,7 @@
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
-/* ---- Latest Posts label (injected by XML above .blog-posts) ---- */
+/* ---- Latest Posts label ---- */
 .latest-posts-label {
   font-size: 0.7rem;
   font-weight: 600;
@@ -172,7 +165,6 @@
   text-transform: uppercase;
   color: var(--color-text-muted);
   margin-bottom: 0.75rem;
-  padding-left: 2px;
   border-left: 3px solid rgba(255, 255, 255, 0.12);
   padding: 0.25rem 0 0.25rem 0.75rem;
 }
@@ -259,19 +251,51 @@
 }
 .post-author a:hover { text-shadow: var(--glow-text-sm); text-decoration: underline; }
 
+/* ---- Post footer ---- */
 .post-footer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
   font-size: 0.875rem;
   color: var(--color-text);
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
 }
-.post-labels,
-.post-location,
-.post-timestamp { display: inline-block; }
-.post-labels a,
-.post-location a { color: var(--color-text); margin-right: 5px; }
-.post-labels a:hover,
+
+.post-footer-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+
+.post-timestamp { color: var(--color-text-dim); font-size: 0.8rem; }
+
+/* ---- Label pills ---- */
+.post-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+.post-labels a {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: var(--color-surface-3);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+.post-labels a:hover {
+  background-color: var(--color-surface-4);
+  color: var(--color-link-hover);
+  box-shadow: var(--glow-sm);
+  text-decoration: none;
+}
+
+.post-location { color: var(--color-text-dim); font-size: 0.8rem; }
+.post-location a { color: var(--color-text); }
 .post-location a:hover { text-shadow: var(--glow-text-sm); text-decoration: underline; }
 
 /* YouTube embeds */
@@ -294,42 +318,49 @@ iframe[src*="youtube.com"]:hover {
 .blog-pager {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 12px;
   padding: 1.25rem 0;
   margin: 0 auto;
 }
 
 .blog-pager-older-link,
 .blog-pager-newer-link {
-  font-size: 1.5rem;
+  font-size: 0.95rem;
   font-weight: bold;
   color: var(--color-text);
-  padding: 10px 20px;
+  padding: 10px 16px;
   border-radius: var(--radius-md);
   background-color: #101010;
   box-shadow: var(--glow-xs);
+  /* Allow the post title to wrap onto a second line */
+  white-space: normal;
+  max-width: 280px;
+  line-height: 1.4;
+  text-align: center;
   transition: transform var(--transition-base),
               box-shadow var(--transition-base),
               color var(--transition-base);
 }
 .blog-pager-older-link:hover,
 .blog-pager-newer-link:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   color: var(--color-link-hover);
   box-shadow: var(--glow-md);
 }
 
 .blog-pager .home-link,
 a.home-link {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: var(--color-text);
-  padding: 12px 32px;
+  padding: 12px 24px;
   border-radius: var(--radius-md);
   background-color: var(--color-surface-0);
   font-family: var(--font-primary);
   text-shadow: var(--glow-text-xs);
   box-shadow: var(--glow-sm);
+  white-space: nowrap;
   transition: transform var(--transition-base),
               box-shadow var(--transition-base),
               background-color var(--transition-base),
@@ -373,6 +404,7 @@ a.feed-link:active {
   box-shadow: var(--glow-sm);
   transform: scale(1);
 }
+
 /* ---- Blog posts section container ---- */
 .blog-posts.hfeed {
   border-left: 3px solid rgba(255, 255, 255, 0.12);
