@@ -373,3 +373,9 @@ a.feed-link:active {
   box-shadow: var(--glow-sm);
   transform: scale(1);
 }
+/* ---- Blog posts section container ---- */
+.blog-posts.hfeed {
+  border-left: 3px solid rgba(255, 255, 255, 0.12);
+  padding-left: 0;
+  margin-top: 0;
+}
