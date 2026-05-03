@@ -4,7 +4,6 @@
    Load this first. Every other module reads from these
    variables — change a value here, it updates everywhere.
    ============================================================ */
-
 :root {
   /* Surfaces (0 = deepest black, higher = lighter) */
   --color-bg:          #121212;
@@ -14,38 +13,31 @@
   --color-surface-3:   #151515;  /* hover state */
   --color-surface-4:   #1a1a1a;  /* elevated: header, dropdowns */
   --color-surface-5:   #2a2a2a;  /* input fields */
-
   /* Text */
   --color-text:        #f5f5f5;
   --color-text-dim:    #e0e0e0;
   --color-text-muted:  #888888;
-
   /* Accents */
   --color-link:        var(--color-text);
   --color-link-hover:  #ffffff;
   --color-accent:      #ffeb3b;
-
   /* Borders */
   --color-border:        rgba(255, 255, 255, 0.10);
   --color-border-strong: rgba(255, 255, 255, 0.20);
-
   /* Glow — box-shadow */
   --glow-xs: 0 0 4px  rgba(255, 255, 255, 0.08);
   --glow-sm: 0 0 6px  rgba(255, 255, 255, 0.12);
   --glow-md: 0 0 10px rgba(255, 255, 255, 0.18);
   --glow-lg: 0 0 16px rgba(255, 255, 255, 0.28);
   --glow-xl: 0 0 24px rgba(255, 255, 255, 0.35);
-
   /* Glow — text-shadow */
   --glow-text-xs: 0 0 3px rgba(255, 255, 255, 0.20);
   --glow-text-sm: 0 0 5px rgba(255, 255, 255, 0.30);
   --glow-text-md: 0 0 6px rgba(255, 255, 255, 0.45);
   --glow-text-lg: 0 0 8px rgba(255, 255, 255, 0.55);
-
   /* Typography */
   --font-primary:   'IM Fell English', Georgia, serif;
   --font-secondary: 'IM Fell English', Georgia, serif;
-
   /* Layout */
   --max-width-wrapper: 1400px;
   --padding-general:   1.25rem;
@@ -55,13 +47,9 @@
   --radius-md:         8px;
   --radius-lg:         12px;
   --gutter:            1.25rem;
-
   /* Motion */
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
-
-  /* Decorative */
-  --frame-border: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQvQ_Lk-3eEUOjmmzn6BFpYvufEhvJo4UUr987xcGQwR9EaLk0A_4oYaQE8efloi9dFJGgINgs-K6Zv9k99PY1POxNAUYPxVAVgeUHy7FsHq2y8cpDwE_ZJJQDKlinUApXhYo8JqF9n6lOcwurvOIIUshMOOGcGBmxM_ev3NXX9xZCiAgsC_M9Y6q7nCU/s320/Frame%20Attempt%202%20.png');
 }
 
 /* ============================================================
@@ -95,7 +83,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
   transition: text-shadow var(--transition-base), color var(--transition-base);
 }
-
 h1:hover, h2:hover, h3:hover,
 h4:hover, h5:hover, h6:hover,
 a:hover {
