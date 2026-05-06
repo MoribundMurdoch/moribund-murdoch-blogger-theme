@@ -44,7 +44,22 @@
     color: var(--color-text);
   }
 
-  .sidebar-icon { display: block; }
+  /* Icon is moved into .header by JS — show it */
+  .sidebar-icon {
+    display: block;
+    position: static;
+    font-size: 1.2rem;
+    padding: 0;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+    z-index: auto;
+    box-shadow: none;
+    cursor: pointer;
+    color: #ffffff;
+    background: none;
+    order: 1;
+  }
 }
 
 /* Mobile */
@@ -56,59 +71,36 @@
     gap: 8px;
   }
 
-  /* Relative so title can be absolutely centered */
   .header {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-  }
-
-  /* Hamburger — left */
-  .sidebar-icon {
-    display: block;
-    position: static;
-    font-size: 1.2rem;
-    padding: 0;
-    width: auto;
-    height: auto;
-    flex-shrink: 0;
-    z-index: auto;
-    box-shadow: none;
-    order: 1;
+    gap: 8px;
   }
 
   /* Logo hidden */
   .logo-container { display: none !important; }
 
-  /* Title — absolutely centered over the row */
+  /* Title — centered via flex */
   .glowing-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    flex: 1;
     font-size: 1.3rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
-    max-width: 50%;
-    pointer-events: none;
   }
 
   /* Right side icons */
-  .search-toggle,
-  .bell-container { order: 3; }
-
-  /* Bell restored on mobile */
   .bell-container {
     display: flex !important;
     flex-shrink: 0;
     gap: 12px;
+    order: 3;
   }
   .bell-icon { font-size: 1.2rem; }
 
-  /* Search toggle shown on mobile */
   .search-toggle {
     display: flex;
     align-items: center;
@@ -120,6 +112,7 @@
     cursor: pointer;
     padding: 0;
     flex-shrink: 0;
+    order: 3;
     transition: color var(--transition-base);
   }
   .search-toggle:hover { color: #ffffff; }
