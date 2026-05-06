@@ -23,6 +23,13 @@
     grid-template-columns: 1fr;
   }
 
+  /* Inner content wrapper fills full width */
+  .content-wrapper > .content-wrapper {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .sidebar {
     position: fixed;
     top: 0;
