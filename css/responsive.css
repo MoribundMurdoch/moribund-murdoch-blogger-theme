@@ -3,7 +3,7 @@
    Breakpoints:
      ≤1440px — hide decorative header elements
      ≤1156px — sidebar becomes off-canvas slide-in
-     ≤640px  — mobile sizing
+     ≤640px  — mobile: header stacks, inline hamburger
      ≤480px  — compact mobile
    ============================================================ */
 
@@ -44,54 +44,54 @@
   .sidebar-icon { display: block; }
 }
 
-/* Mobile — header and content adjustments */
+/* Mobile — header stacks, inline hamburger */
 @media (max-width: 640px) {
 
   /* ---- Header ---- */
   .header-container {
-    padding: 12px 16px;
-    gap: 10px;
+    padding: 10px 12px;
+    gap: 8px;
   }
   .header {
-    gap: 10px;
+    gap: 8px;
+    width: 100%;
   }
 
-  /* Show logo on mobile */
-  .logo-container {
-    display: flex !important;
-    width: 36px;
-    height: 36px;
+  /* Hamburger pulled into header row as static flex item */
+  .sidebar-icon {
+    display: block;
+    position: static;
+    font-size: 1.2rem;
+    padding: 6px;
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
+    z-index: auto;
+    border-radius: 4px;
+    box-shadow: none;
   }
+
+  /* Logo hidden — hamburger takes its slot */
+  .logo-container { display: none !important; }
 
   .glowing-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    flex: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  /* Hide bell on mobile */
+  /* Hide bell */
   .bell-container { display: none !important; }
 
-  /* Search bar full width */
+  /* Search bar full width, no indent */
   .search-container {
     padding-left: 0;
     padding-right: 0;
     width: 100%;
   }
   .search-bar { width: 100%; }
-
-  /* Sidebar icon — sits top-left */
-  .sidebar-icon {
-    top: 12px;
-    left: 12px;
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
-    padding: 8px;
-    z-index: 1100;
-  }
 
   /* ---- Content ---- */
   .blog-pager-older-link,
