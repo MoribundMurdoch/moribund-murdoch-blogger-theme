@@ -120,9 +120,12 @@
   }
   .search-bar { width: 100%; }
 
-  /* Search open — header row hidden, search fills full width */
-  .header-container.search-open .header {
-    display: none;
+  /* Search open — hide everything except the search toggle,
+     then expand the search bar below it */
+  .header-container.search-open .sidebar-icon,
+  .header-container.search-open .glowing-title,
+  .header-container.search-open .bell-container {
+    display: none !important;
   }
   .header-container.search-open .search-container {
     max-height: 60px;
