@@ -101,6 +101,15 @@
   }
   .bell-icon { font-size: 1.2rem; }
 
+  /* Bell dropdown — anchor to right edge on mobile */
+  .notification-container .dropdown-menu {
+    left: auto;
+    right: 0;
+    transform: none;
+    max-width: 90vw;
+    min-width: 260px;
+  }
+
   .search-toggle {
     display: flex;
     align-items: center;
