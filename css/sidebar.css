@@ -1,9 +1,8 @@
 /* ============================================================
    sidebar.css — moribund-murdoch-blogger-theme
-   Sidebar panel, archive tiles, label grid, widget icons,
-   and the mobile toggle icon.
    ============================================================ */
 
+/* ---- Panel ---- */
 .sidebar {
   position: sticky;
   top: 40px;
@@ -17,114 +16,57 @@
   height: fit-content;
   min-width: 0;
   overflow: hidden;
-  border: none;
-  box-shadow: none;
   transition: box-shadow var(--transition-base);
 }
 .sidebar:hover {
-  box-shadow: 0 0 16px rgba(60, 45, 25, 0.25);
+  box-shadow: 0 0 20px rgba(60, 45, 25, 0.3);
 }
 
+/* ---- Widget headings ---- */
+/* Stamped onto the scroll with ink rules — no raised background */
 .sidebar h2 {
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: bold;
-  margin: 0 0 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   text-align: center;
   color: #1a1008;
-  text-shadow: 0 0 1px rgba(60, 45, 25, 0.15);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: text-shadow var(--transition-base);
-  /* Stone tablet button */
-  background-image: url('../assets/textures/button-label-pill.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
-  padding: 14px 20px;
-  border-radius: 0;
+  font-family: var(--font-primary);
+  margin: 0 0 10px;
+  padding: 8px 0;
+  background: none;
+  border-top: 1px solid rgba(60, 45, 25, 0.4);
+  border-bottom: 1px solid rgba(60, 45, 25, 0.4);
+}
+.sidebar h2 a {
+  color: inherit;
+  text-decoration: none;
 }
 
+/* ---- General links ---- */
 .sidebar a {
-  font-size: 0.95rem;
   color: #3d2e1e;
+  font-size: 0.9rem;
   font-weight: 500;
-  transition: color var(--transition-base), text-shadow var(--transition-base);
+  transition: color var(--transition-base);
 }
 .sidebar a:hover {
   color: #1a1008;
-  text-shadow: 0 0 4px rgba(60, 45, 25, 0.3);
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
-.sidebar .widget { margin-bottom: 1.25rem; }
-
-/* ---- Archive date grid ---- */
-.sidebar ul.flat {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.sidebar ul.flat li.archivedate {
-  background-image: url('../assets/textures/button-archive-tile.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  text-align: center;
-  padding: 14px 8px;
-  font-size: 0.72em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-shadow: 0 0 1px rgba(60, 45, 25, 0.12);
-  transition: transform var(--transition-fast), box-shadow var(--transition-base);
-}
-.sidebar ul.flat li.archivedate:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 6px rgba(60, 45, 25, 0.2);
-}
-.sidebar ul.flat li.archivedate a {
-  color: #1a1008;
-  font-weight: bold;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* ---- Category heading tweaks ---- */
-h2 > a[href="/p/categories.html"] { display: inline-block; margin-bottom: 0; }
-h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
-.widget-content.list-label-widget-content { margin-top: 0; padding-top: 0; }
-
-/* ---- Material Icon headers ---- */
-#BlogArchive1 h2::before,
-#Label1 h2::before,
-#Translate1 h2::before {
-  font-family: 'Material Icons';
-  margin-right: 6px;
-  vertical-align: middle;
-  color: #1a1008;
-  text-shadow: 0 0 1px rgba(60, 45, 25, 0.15);
-}
-#BlogArchive1 h2::before { content: 'archive'; }
-#Label1 h2::before       { content: 'label'; }
-#Translate1 h2::before   { content: 'translate'; }
+.sidebar .widget { margin-bottom: 1.5rem; }
 
 /* ---- Label tag grid ---- */
+/* Flat ink tags — no raised surface, just a delicate border */
 .widget-content.list-label-widget-content ul {
   list-style: none;
   margin: 0;
-  padding: 0.5rem;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
+  gap: 5px;
 }
 .widget-content.list-label-widget-content li {
   margin: 0;
@@ -133,33 +75,97 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 }
 .widget-content.list-label-widget-content li a {
   display: block;
-  padding: 12px 14px;
-  background-image: url('../assets/textures/button-label-pill.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
+  padding: 7px 10px;
   color: #1a1008;
   font-family: var(--font-primary);
-  font-size: 0.7rem;
-  border: none;
-  border-radius: 0;
+  font-size: 0.72rem;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  box-shadow: none;
-  transition: transform var(--transition-fast),
-              box-shadow var(--transition-fast),
-              color var(--transition-fast);
+  text-decoration: none;
+  border: 1px solid rgba(60, 45, 25, 0.38);
+  border-radius: 2px;
+  background-color: rgba(60, 45, 25, 0.05);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast);
 }
 .widget-content.list-label-widget-content li a:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 6px rgba(60, 45, 25, 0.2);
-  color: #1a1008;
+  background-color: rgba(60, 45, 25, 0.13);
+  border-color: rgba(60, 45, 25, 0.65);
 }
 .widget-content.list-label-widget-content li span { display: none; }
 
-/* ---- Mobile toggle icon ---- */
+/* ---- Archive tile grid ---- */
+/* Same language as labels — ink border, parchment wash */
+.sidebar ul.flat {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.sidebar ul.flat li.archivedate {
+  text-align: center;
+  padding: 10px 6px;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid rgba(60, 45, 25, 0.35);
+  border-radius: 2px;
+  background-color: rgba(60, 45, 25, 0.05);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+.sidebar ul.flat li.archivedate:hover {
+  background-color: rgba(60, 45, 25, 0.12);
+  border-color: rgba(60, 45, 25, 0.6);
+}
+.sidebar ul.flat li.archivedate a {
+  display: block;
+  color: #1a1008;
+  font-weight: bold;
+  font-size: 0.72rem;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Our Dictionaries — plain dotted ink list ---- */
+#LinkList1 .widget-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#LinkList1 .widget-content ul li {
+  padding: 6px 0;
+  border-bottom: 1px dotted rgba(60, 45, 25, 0.3);
+}
+#LinkList1 .widget-content ul li:last-child { border-bottom: none; }
+
+/* ---- Material icon headers ---- */
+#BlogArchive1 h2::before,
+#Label1 h2::before,
+#Translate1 h2::before {
+  font-family: 'Material Icons';
+  margin-right: 6px;
+  vertical-align: middle;
+  font-size: 1rem;
+  color: #1a1008;
+}
+#BlogArchive1 h2::before { content: 'archive'; }
+#Label1 h2::before       { content: 'label'; }
+#Translate1 h2::before   { content: 'translate'; }
+
+/* ---- Category heading tweaks ---- */
+h2 > a[href="/p/categories.html"] { display: inline-block; }
+h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
+.widget-content.list-label-widget-content { margin-top: 0; padding-top: 0; }
+
+/* ---- Mobile toggle ---- */
 .sidebar-icon {
   display: none;
   position: fixed;
@@ -177,25 +183,14 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 
 /* ---- Responsive scroll variants ---- */
 @media (max-width: 600px) {
-  .sidebar {
-    background-image: url('../assets/textures/sidebar-scroll-panel-sm.png');
-  }
+  .sidebar { background-image: url('../assets/textures/sidebar-scroll-panel-sm.png'); }
 }
-
 @media (min-width: 601px) and (max-width: 1024px) {
-  .sidebar {
-    background-image: url('../assets/textures/sidebar-scroll-panel-md.png');
-  }
+  .sidebar { background-image: url('../assets/textures/sidebar-scroll-panel-md.png'); }
 }
-
 @media (min-width: 1025px) {
-  .sidebar {
-    background-image: url('../assets/textures/sidebar-scroll-panel-lg.png');
-  }
+  .sidebar { background-image: url('../assets/textures/sidebar-scroll-panel-lg.png'); }
 }
-
 @media (min-width: 1400px) {
-  .sidebar {
-    background-image: url('../assets/textures/sidebar-scroll-panel-xl.png');
-  }
+  .sidebar { background-image: url('../assets/textures/sidebar-scroll-panel-xl.png'); }
 }
