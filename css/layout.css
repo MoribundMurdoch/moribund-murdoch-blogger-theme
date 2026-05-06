@@ -1,5 +1,6 @@
 /* ============================================================
    layout.css — moribund-murdoch-blogger-theme
+   Page grid, main content area, publish info.
    ============================================================ */
 
 .main-container {
@@ -22,7 +23,7 @@
   box-sizing: border-box;
   overflow-x: hidden;
 }
-.content-wrapper > .sidebar    { grid-column: 1; min-width: 0; }
+.content-wrapper > .sidebar { grid-column: 1; min-width: 0; }
 .content-wrapper > .content-wrapper {
   grid-column: 2;
   display: block;
@@ -32,7 +33,7 @@
   overflow-x: hidden;
 }
 
-/* Main content */
+/* ---- Main content panel ---- */
 .main-content {
   width: 100%;
   max-width: 100%;
@@ -53,6 +54,7 @@
   color: #000000;
 }
 
+/* ---- Main content text ---- */
 .main-content p,
 .main-content li,
 .main-content td,
@@ -66,7 +68,8 @@
 }
 .main-content a:hover {
   color: #000000;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  text-shadow: none;
+  text-decoration: underline;
 }
 
 .main-content img,
@@ -77,6 +80,7 @@
   box-sizing: border-box;
 }
 
+/* ---- Main content headings ---- */
 .main-content h2 {
   background: repeating-linear-gradient(
     135deg,
@@ -100,6 +104,61 @@
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
+/* ---- Post title overrides ---- */
+.main-content .post-title,
+.main-content .post-title a,
+.main-content .post-title.entry-title,
+.main-content .post-title.entry-title a {
+  color: #000000;
+  text-shadow: none;
+}
+.main-content .post-title a:hover,
+.main-content .post-title.entry-title a:hover {
+  color: #333333;
+  text-shadow: none;
+}
+
+/* ---- Post body overrides ---- */
+.main-content .post-body {
+  color: #000000;
+}
+.main-content .post-body a {
+  color: #222222;
+}
+.main-content .post-body a:hover {
+  color: #000000;
+  text-shadow: none;
+  text-decoration: underline;
+}
+
+/* ---- Post footer overrides ---- */
+.main-content .post-footer {
+  color: #333333;
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+.main-content .post-timestamp,
+.main-content .post-location {
+  color: #555555;
+}
+.main-content .post-author {
+  color: #333333;
+}
+
+/* ---- Label pills overrides ---- */
+.main-content .post-labels a {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #000000;
+  box-shadow: none;
+}
+.main-content .post-labels a:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.3);
+  color: #000000;
+  box-shadow: none;
+}
+
+/* ---- Publish info ---- */
 .publish-info {
   margin: 8px 0;
   font-size: 0.85em;
