@@ -2,7 +2,7 @@
    responsive.css — moribund-murdoch-blogger-theme
    Breakpoints:
      ≤1440px — hide decorative header elements
-     ≤1156px — sidebar becomes off-canvas drawer
+     ≤1156px — sidebar becomes off-canvas slide-in
      ≤640px  — mobile sizing
      ≤480px  — compact mobile
    ============================================================ */
@@ -14,36 +14,37 @@
   .bell-container { display: none; }
 }
 
-/* Sidebar off-canvas */
+/* Sidebar off-canvas — slide-in from left */
 @media (max-width: 1156px) {
   .content-wrapper {
     grid-template-columns: 1fr;
   }
 
   .sidebar {
-    display: none;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -100%;
     width: 75vw;
-    height: 100%;
+    height: 100vh;
     background-color: #000000;
     z-index: 1000;
     overflow-y: auto;
-    box-shadow: var(--glow-md);
     border-radius: 0;
     padding: 60px var(--padding-general) var(--padding-general);
+    transition: left var(--transition-base);
   }
-  .sidebar.open { display: block; }
+  .sidebar.open {
+    left: 0;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
+  }
   .sidebar.open * {
-    font-size: 1em;
     color: var(--color-text);
   }
 
   .sidebar-icon { display: block; }
 }
 
-/* Mobile — stack header rows, full-width search */
+/* Mobile — header and content adjustments */
 @media (max-width: 640px) {
 
   /* ---- Header ---- */
@@ -51,7 +52,6 @@
     padding: 12px 16px;
     gap: 10px;
   }
-
   .header {
     gap: 10px;
   }
@@ -71,10 +71,10 @@
     text-overflow: ellipsis;
   }
 
-  /* Hide bell on mobile — saves space */
+  /* Hide bell on mobile */
   .bell-container { display: none !important; }
 
-  /* Search bar full width, no indent */
+  /* Search bar full width */
   .search-container {
     padding-left: 0;
     padding-right: 0;
@@ -82,7 +82,7 @@
   }
   .search-bar { width: 100%; }
 
-  /* ---- Sidebar icon position — clear of logo/title ---- */
+  /* Sidebar icon — sits top-left */
   .sidebar-icon {
     top: 12px;
     left: 12px;
@@ -110,10 +110,7 @@
 /* Compact mobile */
 @media (max-width: 480px) {
   .glowing-title { font-size: 1.2rem; }
-
-  .sidebar {
-    width: 90vw;
-  }
+  .sidebar { width: 90vw; }
 }
 
 /* Reduced motion */
