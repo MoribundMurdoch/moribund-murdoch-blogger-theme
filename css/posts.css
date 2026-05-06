@@ -14,11 +14,6 @@
   padding-top: calc(var(--padding-general) + 0.5rem);
   margin-bottom: 1.875rem;
   color: #000000;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-.random-post:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 .random-post::before {
   content: '⚄ Random Post';
