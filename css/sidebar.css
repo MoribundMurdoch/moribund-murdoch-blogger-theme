@@ -7,18 +7,14 @@
   position: sticky;
   top: 40px;
   padding: var(--padding-general);
-  background-color: #ffffff;
+  background-color: transparent;
   border-radius: var(--radius-md);
-  color: #1a1008;
+  color: #ffffff;
   height: fit-content;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: box-shadow var(--transition-base);
-}
-.sidebar:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: none;
 }
 
 /* ---- Widget spacing ---- */
@@ -31,13 +27,13 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-align: center;
-  color: #888;
+  color: rgba(255, 255, 255, 0.5);
   font-family: var(--font-primary);
   margin: 0 0 12px;
   padding: 0 0 8px;
   background: none;
   border: none;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 .sidebar h2 a {
   color: inherit;
@@ -46,13 +42,13 @@
 
 /* ---- General links ---- */
 .sidebar a {
-  color: #1a1008;
+  color: #ffffff;
   font-size: 0.9rem;
   font-weight: 500;
   transition: color var(--transition-base);
 }
 .sidebar a:hover {
-  color: #555;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* ---- Material icon headers ---- */
@@ -63,7 +59,7 @@
   margin-right: 6px;
   vertical-align: middle;
   font-size: 1rem;
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.4);
 }
 #BlogArchive1 h2::before { content: 'archive'; }
 #Label1 h2::before       { content: 'label'; }
@@ -90,7 +86,7 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 .widget-content.list-label-widget-content li a {
   display: block;
   padding: 7px 10px;
-  color: #1a1008;
+  color: #ffffff;
   font-family: var(--font-primary);
   font-size: 0.72rem;
   text-align: center;
@@ -98,15 +94,15 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 3px;
-  background-color: #fafafa;
+  background-color: rgba(255, 255, 255, 0.05);
   transition: background-color var(--transition-fast),
               border-color var(--transition-fast);
 }
 .widget-content.list-label-widget-content li a:hover {
-  background-color: #f0f0f0;
-  border-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 .widget-content.list-label-widget-content li span { display: none; }
 
@@ -126,19 +122,19 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 3px;
-  background-color: #fafafa;
+  background-color: rgba(255, 255, 255, 0.05);
   transition: background-color var(--transition-fast),
               border-color var(--transition-fast);
 }
 .sidebar ul.flat li.archivedate:hover {
-  background-color: #f0f0f0;
-  border-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 .sidebar ul.flat li.archivedate a {
   display: block;
-  color: #1a1008;
+  color: #ffffff;
   font-weight: bold;
   font-size: 0.72rem;
   text-decoration: none;
@@ -155,7 +151,7 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
 }
 #LinkList1 .widget-content ul li {
   padding: 6px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 #LinkList1 .widget-content ul li:last-child { border-bottom: none; }
 
@@ -167,15 +163,15 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
   left: 20px;
   z-index: 1001;
   font-size: 1.5rem;
-  color: var(--color-text);
+  color: #ffffff;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 10px;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ---- Responsive (no more texture variants needed) ---- */
+/* ---- Mobile ---- */
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
@@ -185,11 +181,12 @@ h2:has(> a[href="/p/categories.html"]) { margin-bottom: 0; padding-bottom: 0; }
     z-index: 1000;
     overflow-y: auto;
     border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.85);
     transition: left var(--transition-base);
   }
   .sidebar.open {
     left: 0;
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
   }
   .sidebar-icon {
     display: block;
