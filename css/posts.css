@@ -57,10 +57,6 @@
   max-width: 1180px;
   padding: var(--padding-general);
   padding-top: calc(var(--padding-general) + 0.5rem);
-  border-radius: var(--radius-md);
-  background-color: rgba(130, 115, 90, 0.15);
-  border: 1px solid rgba(60, 45, 25, 0.2);
-  box-shadow: 0 0 6px rgba(60, 45, 25, 0.1);
   margin-bottom: 1.875rem;
 }
 .popular-posts-container::before {
