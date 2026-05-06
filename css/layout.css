@@ -1,5 +1,6 @@
 /* ============================================================
    layout.css — moribund-murdoch-blogger-theme
+   Page grid, main content area, publish info.
    ============================================================ */
 
 .main-container {
@@ -139,6 +140,10 @@
   color: #333333;
 }
 
+/* ---- Label colon fix ---- */
+.main-content .post-footer .post-labels::before { content: none; }
+.main-content .post-footer-line > span:empty    { display: none; }
+
 /* ---- Label pills overrides ---- */
 .main-content .post-labels a {
   background-color: rgba(0, 0, 0, 0.06);
@@ -151,6 +156,53 @@
   border-color: rgba(0, 0, 0, 0.3);
   color: #000000;
   box-shadow: none;
+}
+
+/* ---- Pager overrides for light background ---- */
+.main-content .blog-pager-older-link,
+.main-content .blog-pager-newer-link {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #000000;
+  box-shadow: none;
+}
+.main-content .blog-pager-older-link:hover,
+.main-content .blog-pager-newer-link:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.4);
+  color: #000000;
+  box-shadow: none;
+  transform: none;
+}
+.main-content .blog-pager .home-link,
+.main-content a.home-link {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  text-shadow: none;
+  box-shadow: none;
+}
+.main-content .blog-pager .home-link:hover,
+.main-content a.home-link:hover {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ---- Feed link override for light background ---- */
+.main-content a.feed-link {
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: none;
+  text-shadow: none;
+}
+.main-content a.feed-link:hover {
+  background-color: #333333;
+  color: #ffffff;
+  box-shadow: none;
+  transform: none;
 }
 
 /* ---- Publish info ---- */
