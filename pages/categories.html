@@ -1,0 +1,631 @@
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet" />
+
+<style>
+/* ─── Page Wrapper ─── */
+.mm-categories {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ─── Page Title ─── */
+.mm-categories .page-title {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  text-shadow: var(--glow-text-sm);
+  display: block;
+}
+
+.mm-categories .page-subtitle {
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+}
+
+/* ─── Alphabet Block ─── */
+.mm-alpha-block {
+  margin-bottom: 28px;
+  padding: 16px 18px;
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.mm-alpha-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.mm-alpha-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.mm-alpha-row a {
+  color: var(--color-text-dim);
+  text-decoration: none;
+  font-family: 'IM Fell English SC', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.mm-alpha-row a:hover {
+  background: var(--color-surface-3);
+  border-color: var(--color-border-strong);
+  color: var(--color-link-hover);
+  text-shadow: var(--glow-text-sm);
+}
+
+/* ─── Jump Nav ─── */
+.mm-nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 48px;
+  padding: 14px 16px;
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.mm-nav-bar .nav-label {
+  color: var(--color-accent);
+  font-family: 'IM Fell English SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  opacity: 0.85;
+}
+
+.mm-nav-bar a {
+  color: var(--color-text-dim);
+  text-decoration: none;
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.mm-nav-bar a:hover {
+  background: var(--color-surface-3);
+  color: var(--color-link-hover);
+  border-color: var(--color-border-strong);
+}
+
+/* ─── Dewey Section ─── */
+.dewey-section {
+  margin-bottom: 52px;
+}
+
+.dewey-section h2 {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+  margin-top: 0;
+  letter-spacing: 0.06em;
+  text-shadow: var(--glow-text-xs);
+}
+
+.dewey-section h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dewey-section h2 a:hover {
+  color: var(--color-link-hover);
+  text-shadow: var(--glow-text-md);
+}
+
+/* ─── Sub-heading ─── */
+.dewey-section .sub-label {
+  font-size: 0.72rem;
+  font-family: 'IM Fell English SC', serif;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+
+/* ─── Tag Grid ─── */
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag-grid a {
+  color: var(--color-text-dim);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  padding: 5px 11px;
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.02em;
+}
+
+.tag-grid a:hover {
+  background: var(--color-surface-3);
+  border-color: var(--color-border-strong);
+  color: var(--color-link-hover);
+  text-shadow: var(--glow-text-xs);
+}
+
+/* ─── See More link ─── */
+.see-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  font-family: 'IM Fell English SC', serif;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border-strong);
+  padding-bottom: 1px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.see-more:hover {
+  color: var(--color-link-hover);
+  border-color: var(--color-text);
+}
+
+/* ─── Divider ─── */
+.mm-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0 0 52px;
+}
+
+/* ─── Footer note ─── */
+.mm-footer-note {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  letter-spacing: 0.05em;
+}
+</style>
+
+<div class="mm-categories">
+
+  <p class="page-title">Categories</p>
+  <p class="page-subtitle">Organised by the Dewey Decimal System — broad enough to hold everything.</p>
+
+  <!-- Alphabet Filter -->
+  <div class="mm-alpha-block">
+    <div class="mm-alpha-header">
+      <span class="nav-label">A–Z</span>
+      <a class="see-more" href="/p/by-script.html">Browse by script & syllabary →</a>
+    </div>
+    <div class="mm-alpha-row">
+      <a href="/search/label/A">A</a>
+      <a href="/search/label/B">B</a>
+      <a href="/search/label/C">C</a>
+      <a href="/search/label/D">D</a>
+      <a href="/search/label/E">E</a>
+      <a href="/search/label/F">F</a>
+      <a href="/search/label/G">G</a>
+      <a href="/search/label/H">H</a>
+      <a href="/search/label/I">I</a>
+      <a href="/search/label/J">J</a>
+      <a href="/search/label/K">K</a>
+      <a href="/search/label/L">L</a>
+      <a href="/search/label/M">M</a>
+      <a href="/search/label/N">N</a>
+      <a href="/search/label/O">O</a>
+      <a href="/search/label/P">P</a>
+      <a href="/search/label/Q">Q</a>
+      <a href="/search/label/R">R</a>
+      <a href="/search/label/S">S</a>
+      <a href="/search/label/T">T</a>
+      <a href="/search/label/U">U</a>
+      <a href="/search/label/V">V</a>
+      <a href="/search/label/W">W</a>
+      <a href="/search/label/X">X</a>
+      <a href="/search/label/Y">Y</a>
+      <a href="/search/label/Z">Z</a>
+    </div>
+  </div>
+  <hr class="mm-divider" style="margin-bottom: 32px;">
+
+  <!-- Jump Nav -->
+  <div class="mm-nav-bar">
+    <span class="nav-label">Jump to —</span>
+    <a href="#dewey-000">000 General</a>
+    <a href="#dewey-100">100 Philosophy</a>
+    <a href="#dewey-200">200 Religion</a>
+    <a href="#dewey-300">300 Social Sciences</a>
+    <a href="#dewey-400">400 Language</a>
+    <a href="#dewey-500">500 Pure Science</a>
+    <a href="#dewey-600">600 Technology</a>
+    <a href="#dewey-700">700 Arts</a>
+    <a href="#dewey-800">800 Literature</a>
+    <a href="#dewey-900">900 History</a>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 000 – General Works                   -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-000">
+    <h2><a href="/search/label/000">000 – General Works</a></h2>
+    <div class="tag-grid">
+      <a href="/search/label/Encyclopedias">Encyclopedias</a>
+      <a href="/search/label/Curiosities">Curiosities</a>
+      <a href="/search/label/Bibliographies">Bibliographies</a>
+      <a href="/search/label/Libraries">Libraries</a>
+      <a href="/search/label/Databases">Databases</a>
+      <a href="/search/label/Journalism">Journalism</a>
+      <a href="/search/label/Internet Culture">Internet Culture</a>
+      <a href="/search/label/AI">Artificial Intelligence</a>
+      <a href="/search/label/Meta">Meta</a>
+    </div>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 100 – Philosophy & Psychology         -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-100">
+    <h2><a href="/search/label/100">100 – Philosophy & Psychology</a></h2>
+
+    <p class="sub-label">Branches</p>
+    <div class="tag-grid">
+      <a href="/search/label/Metaphysics">Metaphysics</a>
+      <a href="/search/label/Epistemology">Epistemology</a>
+      <a href="/search/label/Logic">Logic</a>
+      <a href="/search/label/Ethics">Ethics</a>
+      <a href="/search/label/Aesthetics">Aesthetics</a>
+      <a href="/search/label/Philosophy of Mind">Philosophy of Mind</a>
+      <a href="/search/label/Philosophy of Language">Philosophy of Language</a>
+      <a href="/search/label/Political Philosophy">Political Philosophy</a>
+    </div>
+
+    <p class="sub-label">Schools & Ideas</p>
+    <div class="tag-grid">
+      <a href="/search/label/Epicureanism">Epicureanism</a>
+      <a href="/search/label/Deontology">Deontology</a>
+      <a href="/search/label/Existentialism">Existentialism</a>
+      <a href="/search/label/Stoicism">Stoicism</a>
+      <a href="/search/label/Nietzsche">Nietzsche</a>
+      <a href="/search/label/Memento Mori">Memento Mori</a>
+      <a href="/search/label/Finitude">Finitude</a>
+    </div>
+
+    <p class="sub-label">Psychology</p>
+    <div class="tag-grid">
+      <a href="/search/label/Psychology">Psychology</a>
+      <a href="/search/label/Cognitive Science">Cognitive Science</a>
+      <a href="/search/label/Behaviorism">Behaviorism</a>
+      <a href="/search/label/Skinner Box">Skinner Box</a>
+      <a href="/search/label/Memory">Memory</a>
+      <a href="/search/label/Hypochondria">Hypochondria</a>
+    </div>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 200 – Religion                        -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-200">
+    <h2><a href="/search/label/200">200 – Religion</a></h2>
+
+    <p class="sub-label">Topics</p>
+    <div class="tag-grid">
+      <a href="/search/label/Theology" class="pill-cyan">Theology</a>
+      <a href="/search/label/Mythology" class="pill-coral">Mythology</a>
+      <a href="/search/label/Philosophy of Religion">Philosophy of Religion</a>
+      <a href="/search/label/Eschatology">Eschatology</a>
+      <a href="/search/label/Mysticism">Mysticism</a>
+      <a href="/search/label/Sacred Texts">Sacred Texts</a>
+    </div>
+
+    <p class="sub-label">World Religions</p>
+    <div class="tag-grid">
+      <a href="/search/label/Buddhism"       class="pill-gold">Buddhism</a>
+      <a href="/search/label/Christianity"   class="pill-blue">Christianity</a>
+      <a href="/search/label/Hinduism"       class="pill-pink">Hinduism</a>
+      <a href="/search/label/Islam"          class="pill-green">Islam</a>
+      <a href="/search/label/Judaism"        class="pill-purple">Judaism</a>
+      <a href="/search/label/Sikhism"        class="pill-amber">Sikhism</a>
+      <a href="/search/label/Taoism"         class="pill-mint">Taoism</a>
+      <a href="/search/label/Confucianism"   class="pill-lavender">Confucianism</a>
+      <a href="/search/label/Shinto"         class="pill-peach">Shinto</a>
+      <a href="/search/label/Bahai"          class="pill-sky">Baháʼí Faith</a>
+      <a href="/search/label/Jainism"        class="pill-rose">Jainism</a>
+      <a href="/search/label/Zoroastrianism" class="pill-ice">Zoroastrianism</a>
+    </div>
+    <a class="see-more" href="https://mordictionary.blogspot.com/p/by-religion.html">See all religion entries →</a>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 300 – Social Sciences                 -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-300">
+    <h2><a href="/search/label/300">300 – Social Sciences</a></h2>
+
+    <p class="sub-label">Governance & Society</p>
+    <div class="tag-grid">
+      <a href="/search/label/Politics">Politics</a>
+      <a href="/search/label/Sociology">Sociology</a>
+      <a href="/search/label/Economics">Economics</a>
+      <a href="/search/label/Law">Law</a>
+      <a href="/search/label/Democracy">Democracy</a>
+      <a href="/search/label/Voluntary Associations">Voluntary Associations</a>
+      <a href="/search/label/Mutual Aid">Mutual Aid</a>
+      <a href="/search/label/Tocqueville">Tocqueville</a>
+    </div>
+
+    <p class="sub-label">Education & Development</p>
+    <div class="tag-grid">
+      <a href="/search/label/Education">Education</a>
+      <a href="/search/label/Foster Care">Foster Care</a>
+      <a href="/search/label/Entrepreneurship">Entrepreneurship</a>
+      <a href="/search/label/Child Development">Child Development</a>
+      <a href="/search/label/Self-Development">Self-Development</a>
+      <a href="/search/label/Charities">Charities</a>
+    </div>
+
+    <p class="sub-label">Culture & Customs</p>
+    <div class="tag-grid">
+      <a href="/search/label/Folklore">Folklore</a>
+      <a href="/search/label/Customs">Customs</a>
+      <a href="/search/label/Gender">Gender</a>
+      <a href="/search/label/Commerce">Commerce</a>
+    </div>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 400 – Language                        -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-400">
+    <h2><a href="/search/label/400">400 – Language</a></h2>
+
+    <p class="sub-label">Linguistics</p>
+    <div class="tag-grid">
+      <a href="/search/label/Linguistics">Linguistics</a>
+      <a href="/search/label/Etymology">Etymology</a>
+      <a href="/search/label/Lexicography">Lexicography</a>
+      <a href="/search/label/Grammar">Grammar</a>
+      <a href="/search/label/Rhetoric">Rhetoric</a>
+      <a href="/search/label/Semantics">Semantics</a>
+      <a href="/search/label/Phonology">Phonology</a>
+      <a href="/search/label/Historical Linguistics">Historical Linguistics</a>
+      <a href="/search/label/Grammaticalization">Grammaticalization</a>
+    </div>
+
+    <p class="sub-label">Word Classes</p>
+    <div class="tag-grid">
+      <a href="/search/label/Nouns">Nouns</a>
+      <a href="/search/label/Verbs">Verbs</a>
+      <a href="/search/label/Adjectives">Adjectives</a>
+      <a href="/search/label/Adverbs">Adverbs</a>
+      <a href="/search/label/Prepositions">Prepositions</a>
+      <a href="/search/label/Conjunctions">Conjunctions</a>
+      <a href="/search/label/Interjections">Interjections</a>
+    </div>
+
+    <p class="sub-label">Languages</p>
+    <div class="tag-grid">
+      <a href="/search/label/English">English</a>
+      <a href="/search/label/Latin">Latin</a>
+      <a href="/search/label/Greek">Greek</a>
+      <a href="/search/label/Swahili">Swahili</a>
+      <a href="/search/label/Estonian">Estonian</a>
+      <a href="/search/label/Japanese">Japanese</a>
+      <a href="/search/label/Korean">Korean</a>
+      <a href="/search/label/French">French</a>
+      <a href="/search/label/German">German</a>
+      <a href="/search/label/Arabic">Arabic</a>
+    </div>
+
+    <p class="sub-label">Lexical Projects</p>
+    <div class="tag-grid">
+      <a href="/search/label/MorDictionary">MorDictionary</a>
+      <a href="/search/label/Word of the Day">Word of the Day</a>
+      <a href="/search/label/WearYourDictionary">WearYourDictionary</a>
+      <a href="/search/label/Vocabulary">Vocabulary</a>
+      <a href="/search/label/Neologisms">Neologisms</a>
+    </div>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 500 – Pure Science                    -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-500">
+    <h2><a href="/search/label/500">500 – Pure Science</a></h2>
+
+    <p class="sub-label">Life Sciences</p>
+    <div class="tag-grid">
+      <a href="/search/label/Biology">Biology</a>
+      <a href="/search/label/Bacteriophages">Bacteriophages</a>
+      <a href="/search/label/Microbiology">Microbiology</a>
+      <a href="/search/label/Ecology">Ecology</a>
+      <a href="/search/label/Botany">Botany</a>
+      <a href="/search/label/Zoology">Zoology</a>
+    </div>
+
+    <p class="sub-label">Physical Sciences</p>
+    <div class="tag-grid">
+      <a href="/search/label/Physics">Physics</a>
+      <a href="/search/label/Chemistry">Chemistry</a>
+      <a href="/search/label/Astronomy">Astronomy</a>
+      <a href="/search/label/Earth Science">Earth Science</a>
+    </div>
+
+    <p class="sub-label">Formal Sciences</p>
+    <div class="tag-grid">
+      <a href="/search/label/Mathematics">Mathematics</a>
+      <a href="/search/label/Logic">Logic</a>
+      <a href="/search/label/Statistics">Statistics</a>
+    </div>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 600 – Technology                      -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-600">
+    <h2><a href="/search/label/600">600 – Technology</a></h2>
+
+    <p class="sub-label">Computing</p>
+    <div class="tag-grid">
+      <a href="/search/label/Computers">Computers</a>
+      <a href="/search/label/Linux">Linux</a>
+      <a href="/search/label/Arch Linux">Arch Linux</a>
+      <a href="/search/label/Open Source">Open Source</a>
+      <a href="/search/label/Web Components">Web Components</a>
+      <a href="/search/label/Engineering">Engineering</a>
+      <a href="/search/label/Python">Python</a>
+      <a href="/search/label/MediaWiki">MediaWiki</a>
+    </div>
+
+    <p class="sub-label">Health & Medicine</p>
+    <div class="tag-grid">
+      <a href="/search/label/Medicine">Medicine</a>
+      <a href="/search/label/Nutrition">Nutrition</a>
+      <a href="/search/label/Raw Milk">Raw Milk</a>
+      <a href="/search/label/Raw Food">Raw Food</a>
+      <a href="/search/label/Fitness">Fitness</a>
+    </div>
+
+    <p class="sub-label">Agriculture & Craft</p>
+    <div class="tag-grid">
+      <a href="/search/label/Agriculture">Agriculture</a>
+      <a href="/search/label/Farming">Farming</a>
+      <a href="/search/label/Cast Iron">Cast Iron</a>
+      <a href="/search/label/Cooking">Cooking</a>
+      <a href="/search/label/Steak">Steak</a>
+    </div>
+
+    <p class="sub-label">Arms</p>
+    <div class="tag-grid">
+      <a href="/search/label/Firearms">Firearms</a>
+      <a href="/search/label/M1911">M1911</a>
+    </div>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 700 – Arts & Recreation               -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-700">
+    <h2><a href="/search/label/700">700 – Arts & Recreation</a></h2>
+
+    <p class="sub-label">Visual Arts</p>
+    <div class="tag-grid">
+      <a href="/search/label/Visual Art">Visual Art</a>
+      <a href="/search/label/Dictionary Art">Dictionary Art</a>
+      <a href="/search/label/Design">Design</a>
+      <a href="/search/label/Typography">Typography</a>
+      <a href="/search/label/Architecture">Architecture</a>
+      <a href="/search/label/Adobe Architecture">Adobe Architecture</a>
+    </div>
+
+    <p class="sub-label">Performing Arts & Music</p>
+    <div class="tag-grid">
+      <a href="/search/label/Music">Music</a>
+      <a href="/search/label/Lexical Soundtrack">Lexical Soundtrack</a>
+      <a href="/search/label/Dance">Dance</a>
+      <a href="/search/label/Film">Film</a>
+      <a href="/search/label/Theatre">Theatre</a>
+    </div>
+
+    <p class="sub-label">Recreation & Leisure</p>
+    <div class="tag-grid">
+      <a href="/search/label/Gaming">Gaming</a>
+      <a href="/search/label/Anime">Anime</a>
+      <a href="/search/label/K-Drama">K-Drama</a>
+      <a href="/search/label/Kotatsu">Kotatsu</a>
+      <a href="/search/label/Twitch">Twitch</a>
+      <a href="/search/label/Streaming">Streaming</a>
+    </div>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 800 – Literature                      -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-800">
+    <h2><a href="/search/label/800">800 – Literature</a></h2>
+    <div class="tag-grid">
+      <a href="/search/label/Poetry">Poetry</a>
+      <a href="/search/label/Fiction">Fiction</a>
+      <a href="/search/label/Essays">Essays</a>
+      <a href="/search/label/Drama">Drama</a>
+      <a href="/search/label/Satire">Satire</a>
+      <a href="/search/label/Rhetoric">Rhetoric</a>
+      <a href="/search/label/Literary Criticism">Literary Criticism</a>
+      <a href="/search/label/Autobiography">Autobiography</a>
+    </div>
+  </div>
+  <hr class="mm-divider">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- 900 – History & Geography             -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="dewey-section" id="dewey-900">
+    <h2><a href="/search/label/900">900 – History & Geography</a></h2>
+
+    <p class="sub-label">History</p>
+    <div class="tag-grid">
+      <a href="/search/label/World History">World History</a>
+      <a href="/search/label/African History">African History</a>
+      <a href="/search/label/World War II">World War II</a>
+      <a href="/search/label/Ancient History">Ancient History</a>
+      <a href="/search/label/Medieval History">Medieval History</a>
+      <a href="/search/label/Modern History">Modern History</a>
+      <a href="/search/label/History of Ideas">History of Ideas</a>
+    </div>
+
+    <p class="sub-label">Biography</p>
+    <div class="tag-grid">
+      <a href="/search/label/Biography">Biography</a>
+      <a href="/search/label/Autobiography">Autobiography</a>
+      <a href="/search/label/MoribundMurdoch">MoribundMurdoch</a>
+    </div>
+
+    <p class="sub-label">Geography & Travel</p>
+    <div class="tag-grid">
+      <a href="/search/label/Travel">Travel</a>
+      <a href="/search/label/Estonia">Estonia</a>
+      <a href="/search/label/Tallinn">Tallinn</a>
+      <a href="/search/label/Africa">Africa</a>
+      <a href="/search/label/Japan">Japan</a>
+    </div>
+  </div>
+
+  <p class="mm-footer-note">Classified under the Dewey Decimal System — because everything deserves a shelf.</p>
+
+</div>
