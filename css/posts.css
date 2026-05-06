@@ -44,7 +44,6 @@
 .random-post a { color: #222222; }
 .random-post a:hover {
   color: #000000;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
   text-decoration: underline;
 }
 
@@ -67,29 +66,22 @@
   margin-bottom: 0.75rem;
 }
 .popular-posts-container h2 {
-  background: repeating-linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.03),
-    rgba(0, 0, 0, 0.07) 40%,
-    rgba(0, 0, 0, 0.03) 80%
-  );
+  background: none;
   margin: 0 0 1.25rem;
-  opacity: 0.95;
-  padding: var(--padding-general);
+  padding: 0.5rem 0;
   text-align: center;
-  border-radius: var(--radius-md);
+  border-radius: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   color: #000000;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.06);
-  cursor: pointer;
+  box-shadow: none;
+  cursor: default;
   font-size: 1.5rem;
-  transition: transform var(--transition-base),
-              box-shadow var(--transition-base),
-              text-shadow var(--transition-base);
+  transition: none;
 }
 .popular-posts-container h2:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  transform: none;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 .popular-posts-grid {
