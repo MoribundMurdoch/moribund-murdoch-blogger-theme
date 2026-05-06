@@ -22,12 +22,12 @@
 
 /* ---- Widget headings ---- */
 .sidebar h2 {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: bold;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
+  text-transform: none;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-primary);
   margin: 0 0 12px;
   padding: 0 0 8px;
@@ -40,6 +40,13 @@
   text-decoration: none;
 }
 
+/* ---- Remove Material Icon pseudo-elements ---- */
+#BlogArchive1 h2::before,
+#Label1 h2::before,
+#Translate1 h2::before {
+  content: none;
+}
+
 /* ---- General links ---- */
 .sidebar a {
   color: #ffffff;
@@ -50,20 +57,6 @@
 .sidebar a:hover {
   color: rgba(255, 255, 255, 0.65);
 }
-
-/* ---- Material icon headers ---- */
-#BlogArchive1 h2::before,
-#Label1 h2::before,
-#Translate1 h2::before {
-  font-family: 'Material Icons';
-  margin-right: 6px;
-  vertical-align: middle;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.4);
-}
-#BlogArchive1 h2::before { content: 'archive'; }
-#Label1 h2::before       { content: 'label'; }
-#Translate1 h2::before   { content: 'translate'; }
 
 /* ---- Label tag grid ---- */
 h2 > a[href="/p/categories.html"] { display: inline-block; }
