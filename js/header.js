@@ -53,10 +53,9 @@
     const searchInput = document.getElementById('search-input');
     const searchForm  = searchInput ? searchInput.closest('form') : null;
 
-    // Cache posts so we only fetch once
-    let postCache = null;
+    let postCache     = null;
     let debounceTimer = null;
-    let activeIndex = -1;
+    let activeIndex   = -1;
 
     function closeAllLists() {
       document.querySelectorAll('.autocomplete-items').forEach(el => el.remove());
@@ -71,7 +70,6 @@
       items.forEach(el => el.classList.remove('autocomplete-active'));
       if (index >= 0 && index < items.length) {
         items[index].classList.add('autocomplete-active');
-        // Fill input with hovered suggestion without committing
         searchInput.value = items[index].dataset.value;
       }
     }
@@ -83,7 +81,6 @@
       const list = document.createElement('div');
       list.className = 'autocomplete-items';
 
-      // Position relative to the search bar wrapper
       const wrapper = searchInput.closest('.search-bar') || searchInput.parentNode;
       wrapper.style.position = 'relative';
       wrapper.appendChild(list);
@@ -92,7 +89,6 @@
         const item = document.createElement('div');
         item.dataset.value = title;
 
-        // Bold the matching portion
         const matchIndex = title.toLowerCase().indexOf(query.toLowerCase());
         if (matchIndex !== -1) {
           item.innerHTML =
@@ -104,11 +100,9 @@
         }
 
         item.addEventListener('mousedown', function (e) {
-          // mousedown fires before blur so we can preventDefault to keep focus
           e.preventDefault();
           searchInput.value = this.dataset.value;
           closeAllLists();
-          // Submit the search
           if (searchForm) searchForm.submit();
         });
 
@@ -141,13 +135,10 @@
       searchInput.addEventListener('input', function () {
         const query = this.value.trim();
         if (!query) return closeAllLists();
-
-        // Debounce — wait 200ms after last keystroke before filtering
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => fetchAndFilter(query), 200);
       });
 
-      // Keyboard navigation
       searchInput.addEventListener('keydown', function (e) {
         const items = getItems();
         if (!items.length) return;
@@ -176,7 +167,6 @@
         if (e.target !== searchInput) closeAllLists();
       });
 
-      // Pre-warm the cache on focus so suggestions feel instant
       searchInput.addEventListener('focus', function () {
         if (!postCache) {
           fetch('/feeds/posts/default?alt=json&max-results=500')
