@@ -1,11 +1,10 @@
 /* ============================================================
    responsive.css — moribund-murdoch-blogger-theme
-   All media queries in one place.
-
    Breakpoints:
      ≤1440px — hide decorative header elements
      ≤1156px — sidebar becomes off-canvas drawer
      ≤640px  — mobile sizing
+     ≤480px  — compact mobile
    ============================================================ */
 
 /* Hide decorative header pieces on smaller desktops */
@@ -28,11 +27,12 @@
     left: 0;
     width: 75vw;
     height: 100%;
-    background-color: var(--color-surface-0);
+    background-color: #000000;
     z-index: 1000;
     overflow-y: auto;
     box-shadow: var(--glow-md);
     border-radius: 0;
+    padding: 60px var(--padding-general) var(--padding-general);
   }
   .sidebar.open { display: block; }
   .sidebar.open * {
@@ -43,13 +43,57 @@
   .sidebar-icon { display: block; }
 }
 
-/* Mobile */
+/* Mobile — stack header rows, full-width search */
 @media (max-width: 640px) {
-  .glowing-title { font-size: 2rem; }
 
-  .search-container { width: 75%; padding: 0; }
-  .search-bar       { width: 100%; }
+  /* ---- Header ---- */
+  .header-container {
+    padding: 12px 16px;
+    gap: 10px;
+  }
 
+  .header {
+    gap: 10px;
+  }
+
+  /* Show logo on mobile */
+  .logo-container {
+    display: flex !important;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .glowing-title {
+    font-size: 1.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Hide bell on mobile — saves space */
+  .bell-container { display: none !important; }
+
+  /* Search bar full width, no indent */
+  .search-container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  .search-bar { width: 100%; }
+
+  /* ---- Sidebar icon position — clear of logo/title ---- */
+  .sidebar-icon {
+    top: 12px;
+    left: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    padding: 8px;
+    z-index: 1100;
+  }
+
+  /* ---- Content ---- */
   .blog-pager-older-link,
   .blog-pager-newer-link,
   .blog-pager .home-link,
@@ -60,15 +104,21 @@
 
   .popular-posts-grid li { flex: 0 0 100%; }
 
-  .main-content,
-  .sidebar { border-width: 12px; }
+  .main-content { border-width: 0; }
 }
 
-/* Respect reduced-motion system preference */
+/* Compact mobile */
+@media (max-width: 480px) {
+  .glowing-title { font-size: 1.2rem; }
+
+  .sidebar {
+    width: 90vw;
+  }
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
