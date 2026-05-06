@@ -14,7 +14,7 @@
   .bell-container { display: none; }
 }
 
-/* Search toggle hidden on desktop — JS injects it, CSS controls visibility */
+/* Search toggle hidden on desktop */
 .search-toggle { display: none; }
 
 /* Sidebar off-canvas — slide-in from left */
@@ -76,7 +76,7 @@
   /* Logo hidden */
   .logo-container { display: none !important; }
 
-  /* Title sized — JS handles truncation */
+  /* Title */
   .glowing-title {
     font-size: 1.3rem;
     flex: 1;
@@ -108,19 +108,27 @@
   }
   .search-toggle:hover { color: #ffffff; }
 
-  /* Search container collapsed by default on mobile */
+  /* Search container — hidden by default */
   .search-container {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-base);
-  }
-  .search-container.open {
-    max-height: 60px;
+    opacity: 0;
+    transition: max-height var(--transition-base),
+                opacity var(--transition-base);
   }
   .search-bar { width: 100%; }
+
+  /* Search open — header row hidden, search fills full width */
+  .header-container.search-open .header {
+    display: none;
+  }
+  .header-container.search-open .search-container {
+    max-height: 60px;
+    opacity: 1;
+    overflow: visible;
+  }
 
   /* ---- Content ---- */
   .blog-pager-older-link,

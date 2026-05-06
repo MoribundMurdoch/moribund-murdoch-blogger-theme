@@ -141,7 +141,6 @@
 
       searchInput.addEventListener('keydown', function (e) {
         const items = getItems();
-        if (!items.length) return;
 
         if (e.key === 'ArrowDown') {
           e.preventDefault();
@@ -160,6 +159,7 @@
           }
         } else if (e.key === 'Escape') {
           closeAllLists();
+          closeSearch();
         }
       });
 
@@ -181,10 +181,11 @@
 
     // === MOBILE SEARCH TOGGLE ===
     const header          = document.querySelector('.header');
+    const headerContainer = document.querySelector('.header-container');
     const searchContainer = document.querySelector('.search-container');
     const bellContainer   = document.querySelector('.bell-container');
 
-    if (header && searchContainer) {
+    if (header && headerContainer && searchContainer) {
       const toggle = document.createElement('button');
       toggle.classList.add('search-toggle');
       toggle.setAttribute('aria-label', 'Toggle search');
@@ -196,24 +197,37 @@
         header.appendChild(toggle);
       }
 
+      function openSearch() {
+        headerContainer.classList.add('search-open');
+        const input = searchContainer.querySelector('input');
+        if (input) input.focus();
+      }
+
+      function closeSearch() {
+        headerContainer.classList.remove('search-open');
+        closeAllLists();
+      }
+
       toggle.addEventListener('click', function (e) {
         e.stopPropagation();
-        const isOpen = searchContainer.classList.toggle('open');
-        if (isOpen) {
-          const input = searchContainer.querySelector('input');
-          if (input) input.focus();
-        } else {
-          closeAllLists();
-        }
+        headerContainer.classList.contains('search-open')
+          ? closeSearch()
+          : openSearch();
       });
 
       document.addEventListener('click', function (e) {
         if (
+          headerContainer.classList.contains('search-open') &&
           !searchContainer.contains(e.target) &&
           e.target !== toggle
         ) {
-          searchContainer.classList.remove('open');
-          closeAllLists();
+          closeSearch();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && headerContainer.classList.contains('search-open')) {
+          closeSearch();
         }
       });
     }
